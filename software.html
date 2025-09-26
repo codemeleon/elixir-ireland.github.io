@@ -1,963 +1,326 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Home page | ELIXIR Ireland</title>
-    <meta name="description" content="ELIXIR-Ireland Website" />
-    <link
-      rel="shortcut icon"
-      href="https://elixir-europe.org/sites/all/themes/elixir/images/favicons/favicon.ico"
-      type="image/vnd.microsoft.icon"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:400,400i,700"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
-  </head>
-  <body>
-    <div id="wrapper">
-      <!-- HEADER -->
-      <header class="main-header" id="header">
-        <div class="container">
-          <div class="hidden">
-            <a href="index.html#main-content">Skip to content</a>
-          </div>
-          <div id="logo">
-            <a href="index.html">
-              <img
-                src="images/logos/elixir_ireland_logo.png"
-                alt="ELIXIR logo"
-                title="Home"
-              />
-            </a>
-          </div>
-          <!-- Main nav -->
-          <label
-            class="show-nav"
-            for="nav-checkbox"
-            title="Show main menu"
-          ></label>
-          <input type="checkbox" id="nav-checkbox" class="nav-checkbox" />
-          <nav id="main-nav">
-            <ul class="floated-inline">
-              <li>
-                <a href="index.html">Home</a>
-              </li>
-              <li>
-                <a href="training.html">Training</a>
-              </li>
-              <li>
-                <a href="databases.html">Databases</a>
-              </li>
-              <li class="active">
-                <a href="software.html">Software</a>
-              </li>
-              <li>
-                <a href="platforms.html">Platforms</a>
-              </li>
-              <li>
-                <a href="events.html">Events</a>
-              </li>
-              <li>
-                <a href="news.html">News</a>
-              </li>
-              <li>
-                <a href="elix_ire_funded.html"
-                  >ELIXIR Ireland Funded Projects</a
-                >
-              </li>
-            </ul>
-          </nav>
-          <!--<form method="get"
-      action="http://dev.elixir-europe.org/search.php"
-      id="search">-->
-          <!--<label for="checkbox" class="checkbox-label" title="Search"></label>-->
-          <!--<input type='checkbox' id="checkbox" class="checkbox">-->
-          <!--<div>-->
-          <!--<input type="text" name="search" />-->
-          <!--<input type="submit" class="button grey" value="Search" />-->
-          <!--</div>-->
-          <!--</form>-->
-        </div>
-        <!-- /container -->
-      </header>
-      <!-- /HEADER -->
-      <!-- MAIN CONTENT AREA -->
-      <div class="body-content one-column">
-        <div class="container">
-          <!-- Main content -->
-          <main class="main-column" id="main-content">
-            <!-- First flexrow -->
-            <div class="flexrow gutters">
-              <div class="percent-100">
-                <div class="tinted">
-                  <h2>Software</h2>
-                  <p>
-                    The following bioinformatics software tools are developed,
-                    maintained, or hosted by ELIXIR Ireland associated
-                    researchers:
-                  </p>
-                  <table class="table table-striped table-hover">
-                    <thead>
-                      <tr>
-                        <th>Tool</th>
-                        <th>Description</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://ribogalaxy.genomicsdatascience.ie/"
-                            class="card-link"
-                            >RiboGalaxy</a
-                          >
-                        </td>
-                        <td>
-                          An instant of Galaxy tailored for ribosome profiling
-                          data analysis. <b>PMID</b>:
-                          <a href="https://pubmed.ncbi.nlm.nih.gov/26821742/"
-                            >26821742</a
-                          >,<a href="https://pubmed.ncbi.nlm.nih.gov/37356899/"
-                            >37356899</a
-                          >; <b>DOI</b>:
-                          <a
-                            href="https://doi.org/10.1080/15476286.2016.1141862"
-                            >10.1080/15476286.2016.1141862</a
-                          >,<a href="https://doi.org/10.1016/j.jmb.2023.168043"
-                            >10.1016/j.jmb.2023.168043</a
-                          >.
-                          <br />
-                          Maintainer: Pavel Baranov<sup
-                            ><a href="mailto:p.baranov@ucc.ie" class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <!--<tr>-->
-                      <!--    <td>-->
-                      <!--        <a href="http://pausepred.ucc.ie" class="card-link">PAUSEPRED</a-->
-                      <!--            >-->
-                      <!--        </td>-->
-                      <!--        <td>-->
-                      <!--            A very simple applet for predicting ribosome pauses-->
-                      <!--            using ribosome profiling data. Not great, but better-->
-                      <!--            than nothing and nothing else is available for this-->
-                      <!--            purpose, hence the tool remains popular. (<b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/26821742/">26821742</a> ???; <b>DOI</b>:<a href="https://doi.org/10.1080/15476286.2016.1141862">10.1080/15476286.2016.1141862</a> ???).-->
-                      <!--            <br />-->
-                      <!--            Maintainer: Pavel Baranov-->
-                      <!--            <sup>-->
-                      <!--                <a href="mailto:p.baranov@ucc.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i> </a-->
-                      <!--                ></sup>-->
-                      <!--            </td>-->
-                      <!--        </tr>-->
-                      <tr>
-                        <td>
-                          <a href="http://trips.ucc.ie" class="card-link"
-                            >Trips-viz</a
-                          >
-                        </td>
-                        <td>
-                          A computational environment for the analysis and
-                          visualisation of public and user-generated ribosome
-                          profiling data mapped to transcriptomes. A component
-                          of
-                          <a href="https://riboseq.org" class="card-link">
-                            https://riboseq.org</a
-                          >. <b>PMID</b>:
-                          <a href="https://pubmed.ncbi.nlm.nih.gov/30239879/"
-                            >30239879</a
-                          >,
-                          <a href="https://pubmed.ncbi.nlm.nih.gov/33950201/"
-                            >33950201</a
-                          >
-                          ; <b>DOI</b>:
-                          <a href="https://doi.org/10.1093/nar/gky842"
-                            >10.1093/nar/gky842</a
-                          >,
-                          <a href="https://doi.org/10.1093/nar/gkab323"
-                            >10.1093/nar/gkab323</a
-                          >.
-                          <br />
-                          Maintainer: Pavel Baranov<sup
-                            ><a href="mailto:p.baranov@ucc.ie" class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://github.com/orgs/cancergenetics/repositories"
-                            class="card-link"
-                            >BRCA-Core</a
-                          >
-                        </td>
-                        <td>
-                          Source code (Python) to identify protein complexes
-                          co-regulated in tumour proteomic samples.
-                          <b>PMID</b>:<a
-                            href="https://pubmed.ncbi.nlm.nih.gov/29032073/"
-                            >29032073</a
-                          >
-                          ???; <b>DOI</b>:<a
-                            href="https://doi.org/10.1016/j.cels.2017.09.011"
-                            >10.1016/j.cels.2017.09.011</a
-                          >.
-                          <br />
-                          Maintainer: Colm Ryan<sup>
-                            <a href="mailto:colm.ryan@ucd.ie" class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="ttp://github.com/lsjermiin/Homo.v2.1"
-                            class="card-link"
-                            >Homo (v2.1)</a
-                          >
-                        </td>
-                        <td>
-                          Source code (C++). A program for analysing
-                          compositional heterogeneity across aligned sequences
-                          of nucleotides, genotypes, di-nucleotides, codons or
-                          amino acids (controls the family-wise error rate and
-                          the false discovery rate). The software also computes
-                          three compositional distances and the
-                          <i>p</i> distance (pending publication).
-                          <br />
-                          Maintainer: Lars Jermiin<sup>
-                            <a
-                              href="mailto:lars.jermiin@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="http://github.com/lsjermiin/SatuRation.v1.0"
-                            class="card-link"
-                            >SatuRation (v1.0)</a
-                          >
-                        </td>
-                        <td>
-                          Source code (C++). A program designed to estimate the
-                          degree of saturation observed between two sequences of
-                          nucleotides, genotypes, di-nucleotides, codons or
-                          amino acids (pending publication).
-                          <br />
-                          Maintainer: Lars Jermiin<sup>
-                            <a
-                              href="mailto:lars.jermiin@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://github.com/thomaskf/AliStat"
-                            class="card-link"
-                            >AliStat (1.14)</a
-                          >
-                        </td>
-                        <td>
-                          Source code (C++). Software for quantifying the
-                          completeness of multiple sequence alignments used in
-                          phylogenetic and phylogenomic research. <b>PMID</b>:<a
-                            href="https://pubmed.ncbi.nlm.nih.gov/33575581/"
-                            >33575581</a
-                          >
-                          ; <b>DOI</b>:<a
-                            href="https://doi.org/10.1093/nargab/lqaa024"
-                            >10.1093/nargab/lqaa024</a
-                          >.
-                          <br />
-                          Maintainers: Thomas Wong<sup
-                            ><a
-                              href="mailto:Thomas.Wong@anu.edu.au"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a></sup
-                          >, Lars Jermiin
-                          <sup
-                            ><a
-                              href="mailto:lars.jermiin@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://github.com/thomaskf/Hal-Has2"
-                            class="card-link"
-                            >HAL-HAS (v2.6.4)</a
-                          >
-                        </td>
-                        <td>
-                          Source code (C++). Software for identifying optimal
-                          models of sequences evolution, which uses mixture
-                          models nucleotide sequence evolution that account for
-                          rate heterogeneity across sites and across lineages.
-                          <b>PMID</b>:<a
-                            href="https://pubmed.ncbi.nlm.nih.gov/24927722/"
-                            >24927722</a
-                          >
-                          ; <b>DOI</b>:<a
-                            href="https://doi.org/10.1093/sysbio/syu036"
-                            >10.1093/sysbio/syu036</a
-                          >
-                          .
-                          <br />
-                          Maintainer: Thomas Wong<sup>
-                            <a
-                              href="mailto:Thomas.Wong@anu.edu.au,lars.jermiin@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a></sup
-                          >, Lars Jermiin<sup>
-                            <a
-                              href="mailto:lars.jermiin@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://github.com/thomaskf/Hetero"
-                            class="card-link"
-                            >Hetero2 (v2.4)</a
-                          >
-                        </td>
-                        <td>
-                          Source code (C++). Software to simulate the evolution
-                          of nucleotide sequences on phylogenetic trees under
-                          heterogeneous Markovian conditions. <b>PMID</b>:<a
-                            href="https://pubmed.ncbi.nlm.nih.gov/24927722/"
-                            >24927722</a
-                          >
-                          ; <b>DOI</b>:<a
-                            href="https://doi.org/10.1093/sysbio/syu036"
-                            >10.1093/sysbio/syu036</a
-                          >
-                          .
-                          <br />
-                          Maintainers: Thomas Wong<sup>
-                            <a
-                              href="mailto:Thomas.Wong@anu.edu.au,lars.jermiin@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a></sup
-                          >, Lars Jermiin<sup>
-                            <a
-                              href="mailto:lars.jermiin@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://github.com/thomaskf/AliJack"
-                            class="card-link"
-                            >AliJack (v1.0)</a
-                          >
-                        </td>
-                        <td>
-                          Source code (C++). Software to randomly sample subsets
-                          of sequences from a multiple sequence alignment. The
-                          jackknife procedure is used. <b>PMID</b>:<a
-                            href="https://pubmed.ncbi.nlm.nih.gov/28350004/"
-                            >28350004</a
-                          >
-                          ; <b>DOI</b>:<a
-                            href="https://doi.org/10.1038/srep45302"
-                            >10.1038/srep45302</a
-                          >.
-                          <br />
-                          Maintainer: Thomas Wong<sup>
-                            <a
-                              href="mailto:Thomas.Wong@anu.edu.au,lars.jermiin@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a></sup
-                          >, Lars Jermiin<sup>
-                            <a
-                              href="mailto:lars.jermiin@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://github.com/thomaskf/CheckJack"
-                            class="card-link"
-                            >CheckJack (v1.0)</a
-                          >
-                        </td>
-                        <td>
-                          Source code (C++). Software to compute jackknife
-                          scores from trees generated from alignments generated
-                          using AliJack. <b>PMID</b>:<a
-                            href="https://pubmed.ncbi.nlm.nih.gov/28350004/"
-                            >28350004</a
-                          >
-                          ; <b>DOI</b>:<a
-                            href="https://doi.org/10.1038/srep45302"
-                            >10.1038/srep45302</a
-                          >.
-                          <br />
-                          Maintainer: Thomas Wong
-                          <sup>
-                            <a
-                              href="mailto:Thomas.Wong@anu.edu.au,lars.jermiin@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a></sup
-                          >, Lars Jermiin<sup>
-                            <a
-                              href="mailto:lars.jermiin@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="http://www.iqtree.org" class="card-link"
-                            >ModelFinder (v1.0)</a
-                          >
-                        </td>
-                        <td>
-                          Source code (C++). Software for model selection during
-                          phylogenetic analysis of nucleotide and amino acid
-                          sequences. ModelFinder is embedded in IQ-TREE and
-                          IQ-TREE2 and can only be access by downloading these
-                          programs. <b>PMID</b>:<a
-                            href="https://pubmed.ncbi.nlm.nih.gov/28481363/"
-                            >28481363</a
-                          >
-                          ; <b>DOI</b>:<a
-                            href="https://doi.org/10.1038/nmeth.4285"
-                            >10.1038/nmeth.4285</a
-                          >.
-                          <br />
-                          Maintainers: Minh Bui
-                          <sup>
-                            <a href="mailto:m.bui@anu.edu.au" class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a></sup
-                          >, Thomas Wong<sup
-                            ><a
-                              href="mailto:Thomas.Wong@anu.edu.au"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                          , Lars Jermiin
-                          <sup
-                            ><a
-                              href="mailto:lars.jermiin@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://CRAN.R-project.org/package=NMF"
-                            class="card-link"
-                          >
-                            NMF</a
-                          >
-                        </td>
-                        <td>
-                          An R package for non-negative matrix factorization
-                          <!--(<b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/26821742/">26821742</a> ???; <b>DOI</b>:<a href="https://doi.org/10.1080/15476286.2016.1141862">10.1080/15476286.2016.1141862</a> ???).  -->
-                          <br />
-                          Maintainer:Renaud Gaujoux
-                          <sup>
-                            <a href="mailto:...." class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a>
-                          </sup>
-                          , Cathal Seoighe
-                          <sup
-                            ><a
-                              href="mailto:cathal.seoighe@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://github.com/osedo/GSA-MREMA/"
-                            class="card-link"
-                          >
-                            MREMA</a
-                          >
-                        </td>
-                        <td>
-                          An R package implementing a mixture of random-effect
-                          meta-analysis. <b>PMID</b>:<a
-                            href="https://pubmed.ncbi.nlm.nih.gov/36197939/"
-                            >36197939</a
-                          >
-                          ; <b>DOI</b>:<a
-                            href="https://doi.org/10.1371/journal.pcbi.1010278"
-                            >10.1371/journal.pcbi.1010278</a
-                          >.
-                          <br />
-                          Maintainer:Dónal O’Shea
-                          <sup>
-                            <a
-                              href="mailto:...@universityofgalway.ie"
-                              class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a>
-                          </sup>
-                          , Cathal Seoighe
-                          <sup
-                            ><a
-                              href="mailto:cathal.seoighe@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
+---
+layout: default
+title: Software
+---
 
-                      <tr>
-                        <td>
-                          <a
-                            href="https://github.com/declan93/PGS-LMM/"
-                            class="card-link"
-                            >PGS-LMM</a
-                          >
-                        </td>
-                        <td>
-                          Scripts intended to facilitate the calculation of the
-                          LOCO PGS and its inclusion as a fixed effect in a
-                          Linear Mixed Model (LMM) implemented with fastGWA.
-                          <b>PMID</b>:<a
-                            href="https://pubmed.ncbi.nlm.nih.gov/34599249/"
-                            >34599249</a
-                          >
-                          ; <b>DOI</b>:<a href="https://doi.org/"
-                            >10.1038/s41598-021-99031-3</a
-                          >.
-                          <br />
-                          Maintainer:Declan Bennett
-                          <sup>
-                            <a
-                              href="mailto:...@universityofgalway.ie"
-                              class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a>
-                          </sup>
-                          , Cathal Seoighe
-                          <sup
-                            ><a
-                              href="mailto:cathal.seoighe@universityofgalway.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="http://bioware.ucd.ie" class="card-link"
-                            >SLiMs</a
-                          >
-                        </td>
-                        <td>
-                          Prediction of function and 2D structures for proteins,
-                          protein motifs and peptides (see
-                          <a href="http://bioware.ucd.ie" class="card-link"
-                            >BioWare</a
-                          >
-                          or
-                          <a href="http://distilldeep.ucd.ie" class="card-link"
-                            >DistillDeep</a
-                          >).
-                          <!--(<b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/26821742/">26821742</a> ???; <b>DOI</b>:<a href="https://doi.org/10.1080/15476286.2016.1141862">10.1080/15476286.2016.1141862</a> ???). -->
-
-                          <br />
-                          Maintainer:Gianluca Pollastri
-                          <sup>
-                            <a
-                              href="mailto:gianluca.pollastri@ucd.ie"
-                              class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a>
-                          </sup>
-                          , Denis Shields
-                          <sup
-                            ><a
-                              href="mailto:denis.shields@ucd.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="http://peptide.ucd.ie/autopeptideML"
-                            class="card-link"
-                            >autopeptideML</a
-                          >
-                        </td>
-                        <td>
-                          AutoPeptideML is a tool that automates the development
-                          of ML models for predicting peptide bioactivity,
-                          facilitating robust evaluation and reproducibility.
-                          PMID:
-                          <a href="https://pubmed.ncbi.nlm.nih.gov/39292535/"
-                            >39292535</a
-                          >; DOI:
-                          <a
-                            href="https://doi.org/10.1093/bioinformatics/btae555"
-                            >10.1093/bioinformatics/btae555</a
-                          >.
-                          <br />
-                          Maintainer: Raul Fernandez-Diaz
-                          <sup>
-                            <a
-                              href="mailto:aul.fernandezdiaz@ucdconnect.ie"
-                              class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a>
-                          </sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a href="http://www.clustal.org" class="card-link"
-                            >Clustal Omega</a
-                          >
-                        </td>
-                        <td>
-                          Multiple Sequence Alignment package via on-line
-                          server, in collaboration with groups in Germany, the
-                          UK and France. <b>PMID</b>:<a
-                            href="https://pubmed.ncbi.nlm.nih.gov/21988835/"
-                            >21988835</a
-                          >
-                          ; <b>DOI</b>:<a
-                            href="https://doi.org/10.1038/msb.2011.75"
-                            >10.1038/msb.2011.75</a
-                          >.
-
-                          <br />
-                          Maintainer:
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://bioconductor.org/packages/release/bioc/html/demuxSNP.html"
-                            class="card-link"
-                            >demuxSNP</a
-                          >
-                        </td>
-                        <td>
-                          R/Bioconductor package that assists in demultiplexing
-                          scRNAseq data using both cell hashing and SNPs data.
-                          <!--(<b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/26821742/">26821742</a> ???; <b>DOI</b>:<a href="https://doi.org/10.1080/15476286.2016.1141862">10.1080/15476286.2016.1141862</a> ???). -->
-                          <br />
-                          Maintainer: Michael Lynch
-                          <sup>
-                            <a
-                              href="mailto:michael.lynch@ul.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a></sup
-                          >, Aedin Culhane<sup
-                            ><a
-                              href="mailto:aedin.culhane@ul.ie"
-                              class="card-link"
-                              ><i
-                                class="fa fa-envelope"
-                                aria-hidden="true"
-                              ></i> </a
-                          ></sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://bioconductor.org/packages/release/bioc/html/corral.html"
-                            class="card-link"
-                            >corral</a
-                          >
-                        </td>
-                        <td>
-                          R/Bioconductor package for correspondence analysis for
-                          single-cell data.
-                          <!--(<b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/26821742/">26821742</a> ???; <b>DOI</b>:<a href="https://doi.org/10.1080/15476286.2016.1141862">10.1080/15476286.2016.1141862</a> ???).-->
-                          <br />
-                          Maintainer: Lauren Hsu
-                          <sup>
-                            <a href="mailto:lrnshoe@gmail.com" class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a> </sup
-                          >, Aedin Culhane
-                          <sup>
-                            <a
-                              href="mailto:aedin.culhane@ul.ie"
-                              class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a>
-                          </sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://bioconductor.org/packages/release/data/experiment/html/SingleCellMultiModal.html"
-                            class="card-link"
-                            >SingleCellMultiModal</a
-                          >
-                        </td>
-                        <td>
-                          R/Bioconductor package providing multimodal
-                          single-cell RNA-seq datasets for benchmarking and
-                          method development.
-                          <!--(<b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/26821742/">26821742</a> ???; <b>DOI</b>:<a href="https://doi.org/10.1080/15476286.2016.1141862">10.1080/15476286.2016.1141862</a> ???).-->
-                          <br />
-                          Maintainer: Marcel Ramos
-                          <sup>
-                            <a
-                              href="mailto:marcel.ramos@roswellpark.org"
-                              class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a> </sup
-                          >, Aedin Culhane
-                          <sup>
-                            <a
-                              href="mailto:aedin.culhane@ul.ie"
-                              class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a>
-                          </sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://bioconductor.org/packages/release/bioc/html/mogsa.html"
-                            class="card-link"
-                            >mogsa</a
-                          >
-                        </td>
-                        <td>
-                          R/Bioconductor package for multi-omics gene set
-                          analysis.
-                          <!--(<b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/26821742/">26821742</a> ???; <b>DOI</b>:<a href="https://doi.org/10.1080/15476286.2016.1141862">10.1080/15476286.2016.1141862</a> ???).-->
-                          <br />
-                          Maintainer: Chen Meng
-                          <sup>
-                            <a
-                              href="mailto:mengchen18@gmail.com"
-                              class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a> </sup
-                          >, Aedin Culhane
-                          <sup>
-                            <a
-                              href="mailto:aedin.culhane@ul.ie"
-                              class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a>
-                          </sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://bioconductor.org/packages/release/bioc/html/iBBiG.html"
-                            class="card-link"
-                            >iBBiG</a
-                          >
-                        </td>
-                        <td>
-                          R/Bioconductor package for iterative binary
-                          bi-clustering that extracts groups of phenotypes from
-                          multiple studies that are associated with similar gene
-                          sets.
-                          <!--(<b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/26821742/">26821742</a> ???; <b>DOI</b>:<a href="https://doi.org/10.1080/15476286.2016.1141862">10.1080/15476286.2016.1141862</a> ???).-->
-                          <br />
-                          Maintainer: Aedin Culhane
-                          <sup>
-                            <a
-                              href="mailto:aedin.culhane@ul.ie"
-                              class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a>
-                          </sup>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://bioconductor.org/packages/release/bioc/html/made4.html"
-                            class="card-link"
-                            >made4</a
-                          >
-                        </td>
-                        <td>
-                          R/Bioconductor package for multivariate analysis of
-                          microarray data.
-                          <!--(<b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/26821742/">26821742</a> ???; <b>DOI</b>:<a href="https://doi.org/10.1080/15476286.2016.1141862">10.1080/15476286.2016.1141862</a> ???).-->
-                          <br />
-                          Maintainer: Aedin Culhane
-                          <sup>
-                            <a
-                              href="mailto:aedin.culhane@ul.ie"
-                              class="card-link"
-                              ><i class="fa fa-envelope" aria-hidden="true"></i>
-                            </a>
-                          </sup>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <!--<ul>-->
-                  <!--<li>-->
-                  <!--Machine learning for protein secondary structure and other-->
-                  <!--predictions (link to GP site)-->
-                  <!--</li>-->
-                  <!--<li>-->
-                  <!--Protein motif and peptide functional prediction and-->
-                  <!--analysis tools (bioware.ucd.ie)-->
-                  <!--</li>-->
-                  <!--<li>-->
-                  <!--Tools for sequence/phylogenetic analysis (LJ single link-->
-                  <!--and clustal.org link).-->
-                  <!--</li>-->
-                  <!--</ul>-->
-                </div>
-              </div>
-            </div>
-            <br />
-            <!-- /second flexrow -->
-          </main>
-        </div>
-        <!-- /container -->
-      </div>
-      <!-- FOOTER -->
-      <footer class="main-footer">
-        <section>
-          <div class="container">
-            <div class="thin-footer">
-              <address>
-                ELIXIR Ireland
-                <br />
-                Head of Node: Denis Shields
-                <br />
-                UCD Conway Institute of Biomolecular and Biomedical Research
-                <br />
-                University College Dublin, Dublin 4
-                <br />
-                <a href="tel:+353 7166735">☏: +353 7166735</a>
-              </address>
-            </div>
-          </div>
-        </section>
-      </footer>
-    </div>
-    <!-- / wrapper -->
-  </body>
-</html>
+            <h2>Software</h2>
+            <p>
+              The following bioinformatics software tools are developed, maintained, or hosted by ELIXIR Ireland associated researchers:
+            </p>
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="https://ribogalaxy.genomicsdatascience.ie/" class="card-link">RiboGalaxy</a>
+                  </td>
+                  <td>
+                    An instance of Galaxy tailored for ribosome profiling data analysis.
+                    <b>PMID</b>:
+                      <a href="https://pubmed.ncbi.nlm.nih.gov/26821742/">26821742</a>,
+                      <a href="https://pubmed.ncbi.nlm.nih.gov/37356899/">37356899</a>;
+                    <b>DOI</b>:
+                      <a href="https://doi.org/10.1080/15476286.2016.1141862">10.1080/15476286.2016.1141862</a>,
+                      <a href="https://doi.org/10.1016/j.jmb.2023.168043">10.1016/j.jmb.2023.168043</a>.
+                    <br />
+                    Maintainer: Pavel Baranov
+                    <sup><a href="mailto:p.baranov@ucc.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="http://trips.ucc.ie" class="card-link">Trips-viz</a>
+                  </td>
+                  <td>
+                    A computational environment for the analysis and visualisation of public and user-generated ribosome profiling data mapped to transcriptomes. A component of
+                    <a href="https://riboseq.org" class="card-link">https://riboseq.org</a>.
+                    <b>PMID</b>:
+                      <a href="https://pubmed.ncbi.nlm.nih.gov/30239879/">30239879</a>,
+                      <a href="https://pubmed.ncbi.nlm.nih.gov/33950201/">33950201</a>;
+                    <b>DOI</b>:
+                      <a href="https://doi.org/10.1093/nar/gky842">10.1093/nar/gky842</a>,
+                      <a href="https://doi.org/10.1093/nar/gkab323">10.1093/nar/gkab323</a>.
+                    <br />
+                    Maintainer: Pavel Baranov
+                    <sup><a href="mailto:p.baranov@ucc.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://github.com/orgs/cancergenetics/repositories" class="card-link">BRCA-Core</a>
+                  </td>
+                  <td>
+                    Source code (Python) to identify protein complexes co-regulated in tumour proteomic samples.
+                    <b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/29032073/">29032073</a>;
+                    <b>DOI</b>:<a href="https://doi.org/10.1016/j.cels.2017.09.011">10.1016/j.cels.2017.09.011</a>.
+                    <br />
+                    Maintainer: Colm Ryan
+                    <sup><a href="mailto:colm.ryan@ucd.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://github.com/lsjermiin/Homo.v2.1" class="card-link">Homo (v2.1)</a>
+                  </td>
+                  <td>
+                    Source code (C++). A program for analysing compositional heterogeneity across aligned sequences of nucleotides, genotypes, di-nucleotides, codons or amino acids (controls the family-wise error rate and the false discovery rate). The software also computes three compositional distances and the <i>p</i> distance (pending publication).
+                    <br />
+                    Maintainer: Lars Jermiin
+                    <sup><a href="mailto:lars.jermiin@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://github.com/lsjermiin/SatuRation.v1.0" class="card-link">SatuRation (v1.0)</a>
+                  </td>
+                  <td>
+                    Source code (C++). A program designed to estimate the degree of saturation observed between two sequences of nucleotides, genotypes, di-nucleotides, codons or amino acids (pending publication).
+                    <br />
+                    Maintainer: Lars Jermiin
+                    <sup><a href="mailto:lars.jermiin@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://github.com/thomaskf/AliStat" class="card-link">AliStat (1.14)</a>
+                  </td>
+                  <td>
+                    Source code (C++). Software for quantifying the completeness of multiple sequence alignments used in phylogenetic and phylogenomic research.
+                    <b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/33575581/">33575581</a>;
+                    <b>DOI</b>:<a href="https://doi.org/10.1093/nargab/lqaa024">10.1093/nargab/lqaa024</a>.
+                    <br />
+                    Maintainers: Thomas Wong
+                    <sup><a href="mailto:Thomas.Wong@anu.edu.au" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>,
+                    Lars Jermiin
+                    <sup><a href="mailto:lars.jermiin@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://github.com/thomaskf/Hal-Has2" class="card-link">HAL-HAS (v2.6.4)</a>
+                  </td>
+                  <td>
+                    Source code (C++). Software for identifying optimal models of sequence evolution, which uses mixture models nucleotide sequence evolution that account for rate heterogeneity across sites and across lineages.
+                    <b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/24927722/">24927722</a>;
+                    <b>DOI</b>:<a href="https://doi.org/10.1093/sysbio/syu036">10.1093/sysbio/syu036</a>.
+                    <br />
+                    Maintainers: Thomas Wong
+                    <sup><a href="mailto:Thomas.Wong@anu.edu.au" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Lars Jermiin
+                    <sup><a href="mailto:lars.jermiin@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://github.com/thomaskf/Hetero" class="card-link">Hetero2 (v2.4)</a>
+                  </td>
+                  <td>
+                    Source code (C++). Software to simulate the evolution of nucleotide sequences on phylogenetic trees under heterogeneous Markovian conditions.
+                    <b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/24927722/">24927722</a>;
+                    <b>DOI</b>:<a href="https://doi.org/10.1093/sysbio/syu036">10.1093/sysbio/syu036</a>.
+                    <br />
+                    Maintainers: Thomas Wong
+                    <sup><a href="mailto:Thomas.Wong@anu.edu.au" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Lars Jermiin
+                    <sup><a href="mailto:lars.jermiin@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://github.com/thomaskf/AliJack" class="card-link">AliJack (v1.0)</a>
+                  </td>
+                  <td>
+                    Source code (C++). Software to randomly sample subsets of sequences from a multiple sequence alignment. The jackknife procedure is used.
+                    <b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/28350004/">28350004</a>;
+                    <b>DOI</b>:<a href="https://doi.org/10.1038/srep45302">10.1038/srep45302</a>.
+                    <br />
+                    Maintainers: Thomas Wong
+                    <sup><a href="mailto:Thomas.Wong@anu.edu.au" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Lars Jermiin
+                    <sup><a href="mailto:lars.jermiin@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://github.com/thomaskf/CheckJack" class="card-link">CheckJack (v1.0)</a>
+                  </td>
+                  <td>
+                    Source code (C++). Software to compute jackknife scores from trees generated from alignments generated using AliJack.
+                    <b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/28350004/">28350004</a>;
+                    <b>DOI</b>:<a href="https://doi.org/10.1038/srep45302">10.1038/srep45302</a>.
+                    <br />
+                    Maintainers: Thomas Wong
+                    <sup><a href="mailto:Thomas.Wong@anu.edu.au" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Lars Jermiin
+                    <sup><a href="mailto:lars.jermiin@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="http://www.iqtree.org" class="card-link">ModelFinder (v1.0)</a>
+                  </td>
+                  <td>
+                    Source code (C++). Software for model selection during phylogenetic analysis of nucleotide and amino acid sequences. ModelFinder is embedded in IQ-TREE and IQ-TREE2 and can only be accessed by downloading these programs.
+                    <b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/28481363/">28481363</a>;
+                    <b>DOI</b>:<a href="https://doi.org/10.1038/nmeth.4285">10.1038/nmeth.4285</a>.
+                    <br />
+                    Maintainers: Minh Bui
+                    <sup><a href="mailto:m.bui@anu.edu.au" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Thomas Wong
+                    <sup><a href="mailto:Thomas.Wong@anu.edu.au" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Lars Jermiin
+                    <sup><a href="mailto:lars.jermiin@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://CRAN.R-project.org/package=NMF" class="card-link">NMF</a>
+                  </td>
+                  <td>
+                    An R package for non-negative matrix factorization
+                    <br />
+                    Maintainer: Renaud Gaujoux
+                    <sup><a href="mailto:...." class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>,
+                    Cathal Seoighe
+                    <sup><a href="mailto:cathal.seoighe@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://github.com/osedo/GSA-MREMA/" class="card-link">MREMA</a>
+                  </td>
+                  <td>
+                    An R package implementing a mixture of random-effect meta-analysis.
+                    <b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/36197939/">36197939</a>;
+                    <b>DOI</b>:<a href="https://doi.org/10.1371/journal.pcbi.1010278">10.1371/journal.pcbi.1010278</a>.
+                    <br />
+                    Maintainer: Dónal O’Shea
+                    <sup><a href="mailto:...@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Cathal Seoighe
+                    <sup><a href="mailto:cathal.seoighe@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://github.com/declan93/PGS-LMM/" class="card-link">PGS-LMM</a>
+                  </td>
+                  <td>
+                    Scripts intended to facilitate the calculation of the LOCO PGS and its inclusion as a fixed effect in a Linear Mixed Model (LMM) implemented with fastGWA.
+                    <b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/34599249/">34599249</a>;
+                    <b>DOI</b>:<a href="https://doi.org/10.1038/s41598-021-99031-3">10.1038/s41598-021-99031-3</a>.
+                    <br />
+                    Maintainer: Declan Bennett
+                    <sup><a href="mailto:...@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Cathal Seoighe
+                    <sup><a href="mailto:cathal.seoighe@universityofgalway.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="http://bioware.ucd.ie" class="card-link">SLiMs</a>
+                  </td>
+                  <td>
+                    Prediction of function and 2D structures for proteins, protein motifs and peptides (see
+                    <a href="http://bioware.ucd.ie" class="card-link">BioWare</a> or
+                    <a href="http://distilldeep.ucd.ie" class="card-link">DistillDeep</a>).
+                    <br />
+                    Maintainer: Gianluca Pollastri
+                    <sup><a href="mailto:gianluca.pollastri@ucd.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Denis Shields
+                    <sup><a href="mailto:denis.shields@ucd.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="http://peptide.ucd.ie/autopeptideML" class="card-link">autopeptideML</a>
+                  </td>
+                  <td>
+                    AutoPeptideML is a tool that automates the development of ML models for predicting peptide bioactivity, facilitating robust evaluation and reproducibility.
+                    PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/39292535/">39292535</a>;
+                    DOI: <a href="https://doi.org/10.1093/bioinformatics/btae555">10.1093/bioinformatics/btae555</a>.
+                    <br />
+                    Maintainer: Raul Fernandez-Diaz
+                    <sup><a href="mailto:aul.fernandezdiaz@ucdconnect.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="http://www.clustal.org" class="card-link">Clustal Omega</a>
+                  </td>
+                  <td>
+                    Multiple Sequence Alignment package via on-line server, in collaboration with groups in Germany, the UK and France.
+                    <b>PMID</b>:<a href="https://pubmed.ncbi.nlm.nih.gov/21988835/">21988835</a>;
+                    <b>DOI</b>:<a href="https://doi.org/10.1038/msb.2011.75">10.1038/msb.2011.75</a>.
+                    <br />
+                    Maintainer:
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://bioconductor.org/packages/release/bioc/html/demuxSNP.html" class="card-link">demuxSNP</a>
+                  </td>
+                  <td>
+                    R/Bioconductor package that assists in demultiplexing scRNAseq data using both cell hashing and SNPs data.
+                    <br />
+                    Maintainer: Michael Lynch
+                    <sup><a href="mailto:michael.lynch@ul.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Aedin Culhane
+                    <sup><a href="mailto:aedin.culhane@ul.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://bioconductor.org/packages/release/bioc/html/corral.html" class="card-link">corral</a>
+                  </td>
+                  <td>
+                    R/Bioconductor package for correspondence analysis for single-cell data.
+                    <br />
+                    Maintainer: Lauren Hsu
+                    <sup><a href="mailto:lrnshoe@gmail.com" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Aedin Culhane
+                    <sup><a href="mailto:aedin.culhane@ul.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://bioconductor.org/packages/release/data/experiment/html/SingleCellMultiModal.html" class="card-link">SingleCellMultiModal</a>
+                  </td>
+                  <td>
+                    R/Bioconductor package providing multimodal single-cell RNA-seq datasets for benchmarking and method development.
+                    <br />
+                    Maintainer: Marcel Ramos
+                    <sup><a href="mailto:marcel.ramos@roswellpark.org" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Aedin Culhane
+                    <sup><a href="mailto:aedin.culhane@ul.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://bioconductor.org/packages/release/bioc/html/mogsa.html" class="card-link">mogsa</a>
+                  </td>
+                  <td>
+                    R/Bioconductor package for multi-omics gene set analysis.
+                    <br />
+                    Maintainer: Chen Meng
+                    <sup><a href="mailto:mengchen18@gmail.com" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>, Aedin Culhane
+                    <sup><a href="mailto:aedin.culhane@ul.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://bioconductor.org/packages/release/bioc/html/iBBiG.html" class="card-link">iBBiG</a>
+                  </td>
+                  <td>
+                    R/Bioconductor package for iterative binary bi-clustering that extracts groups of phenotypes from multiple studies that are associated with similar gene sets.
+                    <br />
+                    Maintainer: Aedin Culhane
+                    <sup><a href="mailto:aedin.culhane@ul.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="https://bioconductor.org/packages/release/bioc/html/made4.html" class="card-link">made4</a>
+                  </td>
+                  <td>
+                    R/Bioconductor package for multivariate analysis of microarray data.
+                    <br />
+                    Maintainer: Aedin Culhane
+                    <sup><a href="mailto:aedin.culhane@ul.ie" class="card-link"><i class="fa fa-envelope" aria-hidden="true"></i></a></sup>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+       
