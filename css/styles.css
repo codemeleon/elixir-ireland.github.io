@@ -476,6 +476,92 @@ main.container {
   background-color: #e8eaed;
 }
 
+/* About Intro Section */
+.about-intro-section {
+  background-color: #ffffff !important;
+}
+
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-intro-text h2 {
+  font-size: 2em;
+  font-weight: 700;
+  color: #023452;
+  margin-bottom: 25px;
+}
+
+.intro-paragraph {
+  font-size: 1.2rem !important;
+  font-weight: 500;
+  color: #2c3e50 !important;
+  line-height: 1.8;
+  margin-bottom: 20px !important;
+}
+
+.about-intro-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-image-placeholder {
+  width: 200px;
+  height: 200px;
+  transition: transform 0.3s ease;
+}
+
+.intro-image-placeholder:hover {
+  transform: scale(1.05);
+}
+
+/* Feature Cards Grid */
+.features-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.feature-card {
+  background: white;
+  padding: 35px 30px;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(244, 125, 33, 0.15);
+  border-color: #f47d21;
+}
+
+.feature-card-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  color: #023452;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+}
+
+.feature-card p {
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
 /* Featured ELIXIR Ireland Section */
 .elixir-ireland-featured {
   background-color: #ffffff !important;
@@ -1150,6 +1236,20 @@ main.container {
 
   .featured-image {
     order: -1;
+  }
+
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-intro-image {
+    order: -1;
+  }
+
+  .intro-image-placeholder {
+    width: 150px;
+    height: 150px;
   }
 }
 
