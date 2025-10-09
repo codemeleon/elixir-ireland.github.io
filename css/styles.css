@@ -101,13 +101,13 @@ a:hover {
   gap: 0.7em;
 }
 
-.header-nav li {
+.header-nav ul li {
   display: inline-block;
   margin: 0;
   padding: 0;
 }
 
-.header-nav li a {
+.header-nav ul li a {
   color: #ffffff;
   text-decoration: none;
   font-weight: 400;
@@ -119,39 +119,14 @@ a:hover {
   white-space: nowrap;
 }
 
-.header-nav li a:hover {
+.header-nav ul li a:hover {
   background-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
   text-decoration: none;
   color: #ffffff;
 }
 
-.header-nav li.active a {
-  background-color: rgba(255, 255, 255, 0.2);
-  font-weight: 700;
-}
-
-/* Ensure all nav items behave the same */
-.header-nav .nav-item a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 400;
-  font-size: 1.54em;
-  padding: 14px 28px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  display: block;
-  white-space: nowrap;
-}
-
-.header-nav .nav-item a:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.header-nav .nav-item.active a {
+.header-nav ul li.active a {
   background-color: rgba(255, 255, 255, 0.2);
   font-weight: 700;
 }
@@ -1792,5 +1767,581 @@ main.container {
   .filter-btn {
     padding: 10px 20px;
     font-size: 0.9rem;
+  }
+}
+
+/* ===========================
+   PARTICIPATE PAGE STYLES
+   =========================== */
+
+/* Participate Grid */
+.participate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+  margin: 2.5em 0;
+}
+
+.participate-card {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 2em;
+  transition: all 0.3s ease;
+}
+
+.participate-card:hover {
+  border-color: #f47d21;
+  box-shadow: 0 8px 20px rgba(244, 125, 33, 0.15);
+  transform: translateY(-5px);
+}
+
+.participate-card-icon {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.participate-card h3 {
+  color: #023452;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li {
+  padding: 0.6em 0;
+  padding-left: 1.8em;
+  position: relative;
+  line-height: 1.6;
+}
+
+.benefits-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #f47d21;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Working Groups Grid */
+.working-groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2em;
+  margin: 2.5em 0;
+}
+
+.working-group-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 2em;
+  transition: all 0.3s ease;
+}
+
+.working-group-card:hover {
+  border-color: #023452;
+  box-shadow: 0 8px 25px rgba(2, 52, 82, 0.15);
+  transform: translateY(-5px);
+}
+
+.working-group-header {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.working-group-icon {
+  font-size: 2.5em;
+  flex-shrink: 0;
+}
+
+.working-group-card h3 {
+  color: #023452;
+  font-size: 1.4em;
+  margin: 0;
+}
+
+.working-group-card > p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 1.5em;
+}
+
+.group-activities {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.group-activities li {
+  padding: 0.5em 0;
+  padding-left: 1.8em;
+  position: relative;
+  color: #666;
+  font-size: 0.95em;
+}
+
+.group-activities li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #f47d21;
+  font-weight: bold;
+}
+
+/* Join Options Grid */
+.join-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5em;
+  margin: 2.5em 0;
+}
+
+.join-option-card {
+  background: #ffffff;
+  border: 3px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 2.5em;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.join-option-card:hover {
+  border-color: #023452;
+  box-shadow: 0 12px 30px rgba(2, 52, 82, 0.2);
+  transform: translateY(-8px);
+}
+
+.join-option-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5em 1.5em;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.join-option-badge.institutional {
+  background: linear-gradient(135deg, #023452, #034d73);
+  color: #ffffff;
+}
+
+.join-option-badge.individual {
+  background: linear-gradient(135deg, #f47d21, #ff9547);
+  color: #ffffff;
+}
+
+.join-option-badge.service {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: #ffffff;
+}
+
+.join-option-card h3 {
+  color: #023452;
+  font-size: 1.8em;
+  margin: 1em 0 0.8em 0;
+  text-align: center;
+}
+
+.join-description {
+  color: #666;
+  text-align: center;
+  font-size: 1.05em;
+  margin-bottom: 2em;
+  line-height: 1.6;
+}
+
+.join-benefits,
+.join-requirements {
+  margin: 2em 0;
+}
+
+.join-benefits h4,
+.join-requirements h4 {
+  color: #023452;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid #f47d21;
+}
+
+.join-benefits ul,
+.join-requirements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.join-benefits ul li,
+.join-requirements ul li {
+  padding: 0.7em 0;
+  padding-left: 2em;
+  position: relative;
+  line-height: 1.6;
+}
+
+.join-benefits ul li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #2ecc71;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.join-requirements ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0.5em;
+  color: #f47d21;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.join-option-card .btn {
+  width: 100%;
+  margin-top: 1.5em;
+  justify-content: center;
+}
+
+.join-cta {
+  background: linear-gradient(135deg, #023452 0%, #034d73 100%);
+  color: #ffffff;
+  padding: 3em;
+  border-radius: 16px;
+  text-align: center;
+  margin-top: 3em;
+}
+
+.join-cta h3 {
+  color: #ffffff;
+  font-size: 1.8em;
+  margin-bottom: 0.8em;
+}
+
+.join-cta p {
+  font-size: 1.1em;
+  margin-bottom: 1.5em;
+  opacity: 0.95;
+}
+
+.join-cta .btn-secondary {
+  background: #ffffff;
+  color: #023452;
+}
+
+.join-cta .btn-secondary:hover {
+  background: #f47d21;
+  color: #ffffff;
+}
+
+/* VIBE Section Styles */
+.vibe-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.vibe-intro {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3em;
+  margin: 2.5em 0;
+  align-items: center;
+}
+
+.vibe-intro-text h3 {
+  color: #023452;
+  font-size: 1.8em;
+  margin-bottom: 1em;
+}
+
+.vibe-intro-text p {
+  line-height: 1.8;
+  margin-bottom: 1.5em;
+  color: #555;
+}
+
+.vibe-ideal-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5em 0;
+}
+
+.vibe-ideal-list li {
+  padding: 0.8em 0;
+  padding-left: 2.5em;
+  position: relative;
+  line-height: 1.6;
+  font-size: 1.05em;
+}
+
+.vibe-ideal-list li:before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  color: #f47d21;
+  font-size: 1.5em;
+}
+
+.vibe-intro-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.subsection-title {
+  color: #023452;
+  font-size: 1.8em;
+  margin: 2.5em 0 1.5em 0;
+  padding-bottom: 0.5em;
+  border-bottom: 3px solid #f47d21;
+}
+
+.vibe-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2em;
+  margin: 2em 0;
+}
+
+.vibe-area-card {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 2em;
+  transition: all 0.3s ease;
+}
+
+.vibe-area-card:hover {
+  border-color: #f47d21;
+  box-shadow: 0 8px 20px rgba(244, 125, 33, 0.15);
+  transform: translateY(-5px);
+}
+
+.vibe-area-icon {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.vibe-area-card h4 {
+  color: #023452;
+  font-size: 1.4em;
+  margin-bottom: 0.8em;
+}
+
+.vibe-area-card p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 1.5em;
+}
+
+.vibe-examples {
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+  border-top: 1px solid #e0e0e0;
+}
+
+.vibe-examples strong {
+  display: block;
+  color: #023452;
+  margin-bottom: 0.8em;
+  font-size: 0.95em;
+}
+
+.vibe-tag {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #555;
+  padding: 0.4em 0.8em;
+  border-radius: 20px;
+  font-size: 0.85em;
+  margin: 0.3em;
+  transition: all 0.2s ease;
+}
+
+.vibe-tag:hover {
+  background: #f47d21;
+  color: #ffffff;
+}
+
+/* VIBE Process Steps */
+.vibe-process {
+  margin: 3em 0;
+}
+
+.process-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2em 0;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.process-step {
+  flex: 1;
+  min-width: 200px;
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 2em 1.5em;
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #023452, #034d73);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0 auto 1em auto;
+  box-shadow: 0 4px 10px rgba(2, 52, 82, 0.3);
+}
+
+.process-step h4 {
+  color: #023452;
+  font-size: 1.2em;
+  margin-bottom: 0.8em;
+}
+
+.process-step p {
+  color: #666;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+.process-arrow {
+  font-size: 2em;
+  color: #f47d21;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+/* VIBE Benefits */
+.vibe-benefits-section {
+  background: #ffffff;
+  border: 2px solid #023452;
+  border-radius: 16px;
+  padding: 2.5em;
+  margin: 3em 0;
+}
+
+.vibe-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5em;
+  margin-top: 2em;
+}
+
+.vibe-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+.benefit-icon {
+  color: #2ecc71;
+  font-size: 1.5em;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.vibe-benefit p {
+  margin: 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+.vibe-benefit strong {
+  color: #023452;
+}
+
+.vibe-action {
+  margin-top: 3em;
+}
+
+.btn-lg {
+  padding: 1em 2.5em;
+  font-size: 1.1em;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1.5em;
+  margin-top: 2.5em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.action-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.action-buttons .btn svg {
+  flex-shrink: 0;
+}
+
+/* Responsive Design for Participate Page */
+@media (max-width: 768px) {
+  .participate-grid,
+  .working-groups-grid,
+  .join-options-grid,
+  .vibe-areas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vibe-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .vibe-intro-image {
+    order: -1;
+  }
+
+  .process-steps {
+    flex-direction: column;
+  }
+
+  .process-arrow {
+    transform: rotate(90deg);
+  }
+
+  .vibe-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .action-buttons .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
