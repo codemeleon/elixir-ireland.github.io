@@ -1,3 +1,26 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  color: #333333;
+  background-color: #ffffff;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
 /* General Body & Typography */
 body {
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -9,9 +32,10 @@ body {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2em;
+  padding: 0 20px;
+  width: 100%;
 }
 
 h1, h2, h3 {
@@ -432,6 +456,26 @@ main.container {
   .main-header .main-nav li {
     margin: 0.5em;
   }
+}
+
+/* Prevent overflow in all sections */
+section {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Fix for grids that might cause overflow */
+.about-intro-grid,
+.info-grid,
+.features-cards,
+.institutes-grid,
+.leadership-grid,
+.team-grid,
+.feature-grid,
+.two-column {
+  width: 100%;
+  max-width: 100%;
 }
 
 /* ===========================
