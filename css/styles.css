@@ -8,13 +8,29 @@ body {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1em;
+  padding: 0 2em;
 }
 
 h1, h2, h3 {
-  color: #0d47a1;
+  color: #023452;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+h3 {
+  font-size: 1.3em;
+  margin-bottom: 0.5em;
 }
 
 a {
@@ -86,27 +102,258 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #023452 0%, #034a73 100%);
+  color: #ffffff;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  color: #ffffff;
+  font-size: 3em;
+  margin-bottom: 0.3em;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  font-weight: 400;
+}
+
+.hero-description {
+  font-size: 1.1em;
+  margin-bottom: 2em;
+  opacity: 0.95;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.button-primary {
+  background-color: #f47920;
+  color: #ffffff;
+}
+
+.button-primary:hover {
+  background-color: #e06810;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 121, 32, 0.3);
+  text-decoration: none;
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.button-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.button-outline {
+  background-color: transparent;
+  color: #023452;
+  border: 2px solid #023452;
+  padding: 10px 25px;
+}
+
+.button-outline:hover {
+  background-color: #023452;
+  color: #ffffff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.button-primary-large {
+  background-color: #f47920;
+  color: #ffffff;
+  padding: 15px 40px;
+  font-size: 1.1em;
+}
+
+.button-primary-large:hover {
+  background-color: #e06810;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(244, 121, 32, 0.3);
+  text-decoration: none;
+}
+
 /* Main Content */
 main.container {
   padding-top: 2em;
   padding-bottom: 2em;
 }
 
-/* Buttons */
-.button {
-  display: inline-block;
-  background-color: #0d47a1;
-  color: #ffffff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-right: 10px;
+/* Sections */
+.about-preview,
+.key-areas,
+.news-events,
+.cta-section {
+  padding: 60px 0;
 }
 
-.button:hover {
-  background-color: #1976d2;
+.about-preview {
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.about-preview p {
+  max-width: 800px;
+  margin: 0 auto 1.5em;
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+.text-link {
+  color: #f47920;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.text-link:hover {
+  color: #e06810;
+}
+
+/* Key Areas - Card Grid */
+.key-areas {
+  background-color: #ffffff;
+}
+
+.key-areas h2 {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 2em;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: #023452;
+}
+
+.card-icon {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.card h3 {
+  margin-bottom: 0.5em;
+}
+
+.card p {
+  color: #666;
+  margin-bottom: 1em;
+  line-height: 1.6;
+}
+
+.card-link {
+  color: #f47920;
+  font-weight: 600;
+}
+
+.card-link:hover {
+  color: #e06810;
+}
+
+/* News & Events */
+.news-events {
+  background-color: #f8f9fa;
+}
+
+.news-events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3em;
+}
+
+.news-section h2,
+.events-section h2 {
+  margin-bottom: 1.5em;
+}
+
+.news-item {
+  background: #ffffff;
+  padding: 1.5em;
+  border-radius: 8px;
+  margin-bottom: 1.5em;
+  border-left: 4px solid #f47920;
+}
+
+.news-date {
+  color: #666;
+  font-size: 0.9em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.news-item h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.news-item p {
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #023452 0%, #034a73 100%);
   color: #ffffff;
-  text-decoration: none;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.cta-section h2 {
+  color: #ffffff;
+  margin-bottom: 0.5em;
+}
+
+.cta-section p {
+  font-size: 1.2em;
+  margin-bottom: 2em;
+  opacity: 0.95;
 }
 
 /* Footer */
@@ -116,4 +363,44 @@ main.container {
   text-align: center;
   padding: 20px 0;
   margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1em;
+  }
+
+  .hero {
+    padding: 50px 0;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2em;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .main-header .main-nav li {
+    margin: 0.5em;
+  }
 }
