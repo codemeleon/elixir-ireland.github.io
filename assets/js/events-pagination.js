@@ -22,21 +22,3 @@ function setTotalItems(count) {
     totalItems = count;
     updatePagination();
 }
-
-// Function to display items for a specific page
-function displayItems(page) {
-    // Logic to display items for the given page goes here
-    
-    // Hide pagination if total items don't exceed items per page
-    const paginationContainer = document.querySelector('.pagination');
-    if (paginationContainer) {
-        if (totalItems <= itemsPerPage) {
-            paginationContainer.style.display = 'none';
-        } else {
-            paginationContainer.style.display = 'flex';
-        }
-    }
-}
-
-// Example usage
-setTotalItems(25); // Set total items and update pagination

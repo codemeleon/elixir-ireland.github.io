@@ -5,6 +5,10 @@ let currentPage = 1;
 let totalPages = 1;
 let currentFilter = 'all';
 
+const itemsPerPage = 10; // Number of items per page
+let totalItems = 0; // Total number of items
+const paginationContainer = document.getElementById('pagination-container');
+
 function initEventsPagination() {
   const eventsGrid = document.getElementById('eventsGrid');
   const eventCards = eventsGrid.querySelectorAll('.event-card');
@@ -142,6 +146,17 @@ function updatePaginationControls() {
       button.classList.remove('active');
     }
   });
+}
+
+function displayItems(items, page) {
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const pageItems = items.slice(startIndex, endIndex);
+
+  // Code to display pageItems goes here
+  // This part needs to be implemented based on how events are displayed.
+  // For now, it's a placeholder.
+  console.log('Displaying items for page', page, pageItems);
 }
 
 // Initialize when DOM is loaded
