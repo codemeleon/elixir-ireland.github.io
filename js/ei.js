@@ -16,10 +16,9 @@
           <div class="nav-links">
             <a href="index.html" class="nav-link">Home</a>
             <a href="about.html" class="nav-link">About</a>
-            <a href="what-we-do.html" class="nav-link">What We Do</a>
             <a href="participate.html" class="nav-link">Participate</a>
-            <a href="events.html" class="nav-link">Events</a>
             <a href="news.html" class="nav-link">News</a>
+            <a href="events.html" class="nav-link">Events</a>
             <a href="contact.html" class="nav-link">Contact</a>
           </div>
         </div>
@@ -64,4 +63,31 @@ function setActiveNavItem() {
       parentLi.classList.add('active');
     }
   });
+}
+
+function loadHeader() {
+  const headerHTML = `
+    <header class="main-header">
+      <div class="header-container">
+        <div class="header-logo">
+          <a href="index.html">
+            <img src="images/logo/ELIXIR_IRELAND_white_background.png" alt="ELIXIR Ireland Logo" />
+          </a>
+        </div>
+        <nav class="header-nav">
+          <ul>
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="about.html">About</a></li>
+            <li class="nav-item"><a href="participate.html">Participate</a></li>
+            <li class="nav-item"><a href="news.html">News</a></li>
+            <li class="nav-item"><a href="events.html">Events</a></li>
+            <li class="nav-item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  `;
+  
+  document.getElementById('header-placeholder').innerHTML = headerHTML;
+  setActiveNavItem();
 }

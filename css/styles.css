@@ -103,6 +103,8 @@ a:hover {
 
 .header-nav li {
   display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 
 .header-nav li a {
@@ -121,9 +123,35 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
   text-decoration: none;
+  color: #ffffff;
 }
 
 .header-nav li.active a {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+}
+
+/* Ensure all nav items behave the same */
+.header-nav .nav-item a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1.54em;
+  padding: 14px 28px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: block;
+  white-space: nowrap;
+}
+
+.header-nav .nav-item a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.header-nav .nav-item.active a {
   background-color: rgba(255, 255, 255, 0.2);
   font-weight: 700;
 }
