@@ -2,7 +2,7 @@
   <style>
     /* Layout: three columns horizontally, wrap on very small screens */
     .main-footer {
-      background: #222; /* keep dark background if not already set */
+      background: #023452; /* keep dark background if not already set */
       color: #fff;
       padding: 30px 0;
     }
@@ -16,10 +16,15 @@
     .main-footer .footer-column {
       flex: 0 0 32%; /* three columns across */
       min-width: 200px; /* prevents premature wrapping */
+      text-align: left;
     }
     .main-footer h3 {
       color: #fff;
       margin-top: 0;
+    }
+    .main-footer .footer-links {
+      list-style-type: none;
+      padding-left: 0;
     }
     .main-footer .footer-links,
     .main-footer .footer-links li,
@@ -57,7 +62,7 @@
   <div class="container">
     <div class="footer-content">
       <div class="footer-column">
-        <h3>ABOUT</h3>
+        <h3>About</h3>
         <ul class="footer-links">
           <li>
             <a href="https://elixir-europe.org/" target="_blank" rel="noopener">
@@ -88,7 +93,7 @@
       </div>
       
       <div class="footer-column">
-        <h3>WHAT WE DO</h3>
+        <h3>What we do</h3>
         <ul class="footer-links">
           <li>
             <a href="{{ '/services' | relative_url }}">
@@ -119,7 +124,7 @@
       </div>
       
       <div class="footer-column">
-        <h3>CONNECT</h3>
+        <h3>Connect</h3>
         <ul class="footer-links">
           <li>
             <a href="{{ '/news' | relative_url }}">
