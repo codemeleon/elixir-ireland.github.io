@@ -96,10 +96,6 @@ function showPage(pageNum) {
   
   // Update pagination controls
   updatePaginationControls();
-  
-  // Scroll to top of events section
-  eventsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
 
 function renderPagination() {
   const paginationNumbers = document.getElementById('paginationNumbers');
