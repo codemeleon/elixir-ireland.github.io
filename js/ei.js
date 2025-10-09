@@ -8,13 +8,13 @@
       <nav class="navbar">
         <div class="container">
           <div class="nav-brand">
-            <a href="index.html">
+            <a href="home.html">
               <img src="https://elixir-europe.org/sites/default/files/images/elixir-ireland-logo.png" alt="ELIXIR Ireland Logo" class="logo">
               <span class="brand-text">ELIXIR Ireland</span>
             </a>
           </div>
           <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
+            <a href="home.html" class="nav-link">Home</a>
             <a href="about.html" class="nav-link">About</a>
             <a href="participate.html" class="nav-link">Participate</a>
             <a href="news.html" class="nav-link">News</a>
@@ -31,7 +31,7 @@
     .then(response => response.text())
     .then(data => {
       document.getElementById('header-placeholder').innerHTML = data;
-      setActiveNavItem();
+      setActiveNavLink();
     })
     .catch(error => console.error('Error loading header:', error));
 
@@ -45,49 +45,44 @@
 })();
 
 // Set active navigation item based on current page
-function setActiveNavItem() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.header-nav a');
+function setActiveNavLink() {
+  const currentPage = window.location.pathname.split("/").pop() || "home.html";
+  const navLinks = document.querySelectorAll(".nav-link");
   
-  navLinks.forEach(link => {
-    const linkPage = link.getAttribute('href');
-    const parentLi = link.parentElement;
-    
-    // Remove active class from all items first
-    parentLi.classList.remove('active');
-    
-    // Add active class to current page
-    if (linkPage === currentPage || 
-        (currentPage === '' && linkPage === 'index.html') ||
-        (currentPage === 'index.html' && linkPage === 'index.html')) {
-      parentLi.classList.add('active');
+  navLinks.forEach((link) => {
+    const linkPage = link.getAttribute("href");
+    if (linkPage === currentPage || (currentPage === "" && linkPage === "home.html") || (currentPage === "home.html" && linkPage === "home.html")) {
+      link.classList.add("active");
     }
   });
 }
 
 function loadHeader() {
-  const headerHTML = `
-    <header class="main-header">
-      <div class="header-container">
-        <div class="header-logo">
-          <a href="index.html">
-            <img src="images/logo/ELIXIR_IRELAND_white_background.png" alt="ELIXIR Ireland Logo" />
-          </a>
+  const header = `
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="home.html">
+              <img src="images/ELIXIR_IRELAND_white_background.png" alt="ELIXIR Ireland Logo" />
+            </a>
+          </div>
+          <nav>
+            <ul class="nav-menu">
+              <li><a href="home.html" class="nav-link" data-page="home">Home</a></li>
+              <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+              <li><a href="what-we-do.html" class="nav-link" data-page="what-we-do">What We Do</a></li>
+              <li><a href="people.html" class="nav-link" data-page="people">People</a></li>
+              <li><a href="participate.html" class="nav-link" data-page="participate">Participate</a></li>
+              <li><a href="events.html" class="nav-link" data-page="events">Events</a></li>
+              <li><a href="news.html" class="nav-link" data-page="news">News</a></li>
+              <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+          </nav>
         </div>
-        <nav class="header-nav">
-          <ul>
-            <li class="nav-item"><a href="index.html">Home</a></li>
-            <li class="nav-item"><a href="about.html">About</a></li>
-            <li class="nav-item"><a href="participate.html">Participate</a></li>
-            <li class="nav-item"><a href="news.html">News</a></li>
-            <li class="nav-item"><a href="events.html">Events</a></li>
-            <li class="nav-item"><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
       </div>
     </header>
   `;
-  
-  document.getElementById('header-placeholder').innerHTML = headerHTML;
-  setActiveNavItem();
+  document.getElementById("header-placeholder").innerHTML = header;
+  setActiveNavLink();
 }
