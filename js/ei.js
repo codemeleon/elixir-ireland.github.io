@@ -1,7 +1,32 @@
 // This file can be used for any custom JavaScript functionality for the site.
 
-// Load header and footer immediately
+// Load header and footer efficiently with caching
 (function() {
+  // Immediately inject header to prevent flash
+  const headerHTML = `
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <div class="nav-brand">
+            <a href="index.html">
+              <img src="https://elixir-europe.org/sites/default/files/images/elixir-ireland-logo.png" alt="ELIXIR Ireland Logo" class="logo">
+              <span class="brand-text">ELIXIR Ireland</span>
+            </a>
+          </div>
+          <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="what-we-do.html" class="nav-link">What We Do</a>
+            <a href="participate.html" class="nav-link">Participate</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="news.html" class="nav-link">News</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+  `;
+
   // Load header
   fetch('includes/header.html')
     .then(response => response.text())
