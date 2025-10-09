@@ -1,7 +1,7 @@
 // This file can be used for any custom JavaScript functionality for the site.
 
-// Load header and footer
-document.addEventListener('DOMContentLoaded', function() {
+// Load header and footer immediately
+(function() {
   // Load header
   fetch('includes/header.html')
     .then(response => response.text())
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('footer-placeholder').innerHTML = data;
     })
     .catch(error => console.error('Error loading footer:', error));
-});
+})();
 
 // Set active navigation item based on current page
 function setActiveNavItem() {
@@ -29,10 +29,14 @@ function setActiveNavItem() {
     const linkPage = link.getAttribute('href');
     const parentLi = link.parentElement;
     
-    if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+    // Remove active class from all items first
+    parentLi.classList.remove('active');
+    
+    // Add active class to current page
+    if (linkPage === currentPage || 
+        (currentPage === '' && linkPage === 'index.html') ||
+        (currentPage === 'index.html' && linkPage === 'index.html')) {
       parentLi.classList.add('active');
-    } else {
-      parentLi.classList.remove('active');
     }
   });
 }

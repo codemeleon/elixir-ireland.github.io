@@ -5,6 +5,7 @@ body {
   color: #333333;
   background-color: #ffffff;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
 .container {
@@ -43,6 +44,18 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Prevent flash of unstyled content */
+#header-placeholder,
+#footer-placeholder {
+  min-height: 1px;
+}
+
+#header-placeholder:empty,
+#footer-placeholder:empty {
+  display: block;
+  min-height: 90px;
+}
+
 /* Header */
 .main-header {
   background-color: #023452;
@@ -56,10 +69,13 @@ a:hover {
   padding: 0 2em;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  position: relative;
 }
 
 .header-logo {
+  position: absolute;
+  left: 2em;
   flex-shrink: 0;
   width: 450px;
 }
@@ -71,9 +87,9 @@ a:hover {
 }
 
 .header-nav {
-  flex-grow: 1;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .header-nav ul {
@@ -82,7 +98,7 @@ a:hover {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 0.7em;
 }
 
 .header-nav li {
@@ -93,8 +109,8 @@ a:hover {
   color: #ffffff;
   text-decoration: none;
   font-weight: 400;
-  font-size: 1.1em;
-  padding: 10px 20px;
+  font-size: 1.54em;
+  padding: 14px 28px;
   border-radius: 4px;
   transition: all 0.3s ease;
   display: block;
@@ -116,7 +132,7 @@ a:hover {
 .hero {
   background: linear-gradient(135deg, #023452 0%, #034a73 100%);
   color: #ffffff;
-  padding: 80px 0;
+  padding: 50px 0;
   text-align: center;
 }
 
@@ -226,17 +242,17 @@ main.container {
 .key-areas,
 .news-events,
 .cta-section {
-  padding: 60px 0;
+  padding: 30px 0;
 }
 
 .about-preview {
-  background-color: #f8f9fa;
+  background-color: #e8eaed;
   text-align: center;
 }
 
 .about-preview p {
   max-width: 800px;
-  margin: 0 auto 1.5em;
+  margin: 0 auto 1em;
   font-size: 1.1em;
   line-height: 1.8;
 }
@@ -258,7 +274,7 @@ main.container {
 
 .key-areas h2 {
   text-align: center;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 .card-grid {
@@ -308,7 +324,7 @@ main.container {
 
 /* News & Events */
 .news-events {
-  background-color: #f8f9fa;
+  background-color: #e8eaed;
 }
 
 .news-events-grid {
@@ -352,17 +368,17 @@ main.container {
   background: linear-gradient(135deg, #023452 0%, #034a73 100%);
   color: #ffffff;
   text-align: center;
-  padding: 80px 0;
+  padding: 50px 0;
 }
 
 .cta-section h2 {
   color: #ffffff;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.3em;
 }
 
 .cta-section p {
   font-size: 1.2em;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
   opacity: 0.95;
 }
 
@@ -372,7 +388,7 @@ main.container {
   color: #ffffff;
   text-align: center;
   padding: 20px 0;
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 /* Responsive Design */
