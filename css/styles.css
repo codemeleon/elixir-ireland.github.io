@@ -29,9 +29,9 @@ a:hover {
 
 /* Header */
 .main-header {
-  background-color: #0d47a1;
-  color: #ffffff;
-  padding: 1em 0;
+  background-color: #023452;
+  padding: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .main-header .container {
@@ -58,6 +58,27 @@ a:hover {
 .main-header .main-nav a {
   color: #ffffff;
   font-size: 1.1em;
+}
+
+.main-nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.main-nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.main-nav ul li.active a {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 700;
 }
 
 .main-header .main-nav a:hover,
@@ -90,9 +111,9 @@ main.container {
 
 /* Footer */
 .main-footer {
-  background-color: #0d47a1;
+  background-color: #023452;
   color: #ffffff;
-  padding: 2em 0;
-  margin-top: 2em;
   text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
 }
