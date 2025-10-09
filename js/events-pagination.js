@@ -96,8 +96,25 @@ function showPage(pageNum) {
   
   // Update pagination controls
   updatePaginationControls();
+  
+  // Scroll to top of events section
+  eventsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
 function renderPagination() {
+  const eventsGrid = document.getElementById('eventsGrid');
+  const visibleCards = eventsGrid.querySelectorAll('.event-card:not(.hidden)');
+  const totalPages = Math.ceil(visibleCards.length / ITEMS_PER_PAGE);
+  const paginationContainer = document.getElementById('pagination');
+  
+  // Hide pagination if not needed
+  if (totalPages <= 1) {
+    paginationContainer.style.display = 'none';
+    return;
+  }
+  
+  paginationContainer.style.display = 'flex';
+  
   const paginationNumbers = document.getElementById('paginationNumbers');
   paginationNumbers.innerHTML = '';
   
