@@ -1,4 +1,0 @@
-1.jpg,Irish Head of Node, Prof. Denis Shields, welcomes meeting attendees during the opening presentation.
-2.jpg,Prof. Des Higgins presenting the keynote talk "35 years since Clustal1".
-3.jpg,Prof. Gianpiero Cavalleri presenting an overview of ELIXIR, Ireland and Human Genomics.
-4.jpg,Group photo of all ELIXIR members attending the meeting in Dublin.
