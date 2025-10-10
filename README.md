@@ -1,22 +1,125 @@
-# About
+# ELIXIR Ireland Website
 
 This is the official GitHub repository of [ELIXIR Ireland](https://elixir-ireland.ie).
 
-# Issue reports and suggestions
+## Prerequisites
+
+- Ruby (version 2.7 or higher)
+- RubyGems
+- GCC and Make
+
+## Initial Setup
+
+### 1. Install Ruby
+
+Check if Ruby is installed on your machine:
+```bash
+ruby --version
+```
+
+If not installed, install Ruby:
+- **Ubuntu/Debian**: `sudo apt-get install ruby-full build-essential zlib1g-dev`
+- **macOS**: `brew install ruby`
+- **Windows**: Use [RubyInstaller](https://rubyinstaller.org/)
+
+### 2. Install Bundler
+
+```bash
+gem install bundler
+```
+
+### 3. Clone the Repository
+
+```bash
+git clone https://github.com/elixir-ireland/elixir-ireland.github.io.git
+cd elixir-ireland.github.io
+```
+
+### 4. Install Dependencies
+
+```bash
+bundle install
+```
+
+## Local Development
+
+### Run the Site Locally
+
+```bash
+bundle exec jekyll serve
+```
+
+The site will be available at `http://localhost:4000` or equivalent as indicated by the command line output.
+
+### Run with Live Reload
+
+```bash
+bundle exec jekyll serve --livereload
+```
+
+## Making Changes
+
+### Content Updates
+
+- **Pages**: Edit files in the root directory or relevant subdirectories
+- **Posts**: Add/edit files in `_posts/` directory
+- **Configuration**: Edit `_config.yml`
+- **Styles**: Modify CSS files or relevant directories
+- **Images**: Add to relevant directories
+
+## Deployment
+
+### Deploy to GitHub Pages
+
+The site automatically deploys when you push updates to the main branch:
+
+```bash
+git add .
+git commit -m "Your commit message"
+git push origin main
+```
+
+GitHub Pages will automatically build and deploy the site within a few minutes using GitHub actions.
+
+
+## Updating Dependencies
+
+Keep Jekyll and gems up to date:
+
+```bash
+bundle update
+```
+
+## Troubleshooting
+
+### Permission Errors
+
+If you encounter permission errors when installing gems:
+
+```bash
+bundle install --path vendor/bundle
+```
+
+### Port Already in Use
+
+Specify a different port:
+
+```bash
+bundle exec jekyll serve --port 4001
+```
+
+### Clear Cache
+
+If changes aren't appearing:
+
+```bash
+bundle exec jekyll clean
+bundle exec jekyll serve
+```
+
+## Issue Reports and Suggestions
 
 If you have identified an issue or have any suggestions to improve the site, please [open an issue](https://github.com/elixir-ireland/elixir-ireland.github.io/issues/new) or [create a pull request](https://github.com/elixir-ireland/elixir-ireland.github.io/pulls).
 
-<!--
-**elixir-ireland/elixir-ireland** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## License
+This project is maintained by ELIXIR Ireland.
