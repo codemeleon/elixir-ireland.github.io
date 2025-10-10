@@ -351,6 +351,8 @@ main.container {
   padding: 2em;
   text-align: center;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -372,15 +374,13 @@ main.container {
   color: #666;
   margin-bottom: 1em;
   line-height: 1.6;
+  flex-grow: 1;
 }
 
 .card-link {
   color: #f47920;
   font-weight: 600;
-}
-
-.card-link:hover {
-  color: #e06810;
+  margin-top: auto;
 }
 
 /* News & Events */
@@ -442,6 +442,21 @@ main.container {
   text-align: center;
   padding: 20px 0;
   margin-top: 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2em;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3em;
+}
+
+.footer-column {
+  flex: 1;
+  max-width: 300px;
 }
 
 /* Responsive Design */
