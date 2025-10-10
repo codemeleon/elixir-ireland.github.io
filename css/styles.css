@@ -751,7 +751,7 @@ section {
 
 /* Container for content within sections */
 .content-section .container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
