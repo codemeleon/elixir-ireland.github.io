@@ -569,7 +569,7 @@ section {
 }
 
 .content-section:nth-of-type(even) {
-  background-color: #e8eaed;
+  background-color: #f8f9fa;
 }
 
 /* About Intro Section */
@@ -757,7 +757,8 @@ section {
 .section-header {
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
+  gap: 20px;
+  margin-bottom: 1.5em;
 }
 
 .icon-circle {
@@ -771,6 +772,7 @@ section {
   justify-content: center;
   color: white;
   box-shadow: 0 4px 12px rgba(244, 125, 33, 0.3);
+  margin: 0;
 }
 
 .section-header h2 {
@@ -1499,7 +1501,6 @@ section {
 }
 
 .section-content {
-  padding-left: calc(64px + 1.5rem);
 }
 
 .alt-bg .section-content {
@@ -1507,7 +1508,6 @@ section {
 }
 
 .alt-bg .section-header {
-  padding-left: calc(64px + 1.5rem);
 }
 
 .participate-grid {
