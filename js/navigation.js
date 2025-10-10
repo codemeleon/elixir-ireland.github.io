@@ -11,6 +11,10 @@
   
   // Check if header/footer are already loaded
   let headerFooterLoaded = false;
+
+  // Track current navigation to prevent race conditions
+  let currentNavToken = 0;
+  let currentAbortController = null;
   
   /**
    * Extract main content from HTML string
@@ -50,6 +54,13 @@
   }
   
   /**
+   * Get relative path from a full URL
+   */
+  function getRelativePath(url) {
+    return new URL(url).pathname;
+  }
+  
+  /**
    * Update page title from loaded content
    */
   function updatePageTitle(html) {
@@ -63,26 +74,21 @@
   
   /**
    * Update active navigation state
+   * --- THIS IS THE FIRST CORRECTED PART ---
    */
-  function updateActiveNav(href) {
-    // Remove all active classes
+  function updateActiveNav(path) {
+    // Use the provided path, or default to the current window's location if none is given
+    const targetPath = new URL(path, window.location.origin).pathname;
+
     document.querySelectorAll('nav a').forEach(link => {
-      link.classList.remove('active');
-      if (link.parentElement) {
-        link.parentElement.classList.remove('active');
-      }
-    });
-    
-    // Add active class to matching link
-    const normalizedHref = href.split('/').pop() || 'home.html';
-    document.querySelectorAll('nav a').forEach(link => {
-      const linkHref = link.getAttribute('href');
-      if (linkHref === normalizedHref || linkHref === href || 
-          (normalizedHref === 'home.html' && linkHref === 'home.html')) {
+      const linkPath = new URL(link.href, window.location.origin).pathname;
+
+      // Check if the link's path matches the target path.
+      // A special check for the homepage (path === '/') ensures it matches correctly.
+      if (linkPath === targetPath || (linkPath === '/' && targetPath.startsWith('/index.html'))) {
         link.classList.add('active');
-        if (link.parentElement) {
-          link.parentElement.classList.add('active');
-        }
+      } else {
+        link.classList.remove('active');
       }
     });
   }
@@ -91,55 +97,55 @@
    * Load page content via AJAX
    */
   function loadPage(href, addToHistory = true) {
-    // Normalize the href
-    const normalizedHref = href.split('#')[0];
-    
-    // Check cache first
-    if (contentCache[normalizedHref]) {
-      replaceMainContent(contentCache[normalizedHref]);
-      updateActiveNav(normalizedHref);
+    const url = new URL(href, window.location.origin);
+    const cacheKey = url.pathname; // cache by pathname only
+    const fullPath = url.pathname + url.search + url.hash; // push full path
+
+    // Increment token and abort any in-flight request
+    const myToken = ++currentNavToken;
+    if (currentAbortController) {
+      try { currentAbortController.abort(); } catch (_) {}
+    }
+    currentAbortController = new AbortController();
+
+    if (addToHistory) {
+      history.pushState({ page: fullPath, cacheKey }, '', fullPath);
+    }
+
+    // Update active nav using pathname only
+    updateActiveNav(cacheKey);
+
+    // Serve from cache
+    if (contentCache[cacheKey]) {
+      if (myToken !== currentNavToken) return; // stale
+      replaceMainContent(contentCache[cacheKey]);
       window.scrollTo(0, 0);
       return;
     }
-    
-    // Load content via fetch
-    fetch(normalizedHref)
+
+    // Fetch with abort support and ignore stale responses
+    fetch(fullPath, { signal: currentAbortController.signal })
       .then(response => {
-        if (!response.ok) {
-          throw new Error('Page not found');
-        }
+        if (!response.ok) throw new Error('Page not found');
         return response.text();
       })
       .then(html => {
+        if (myToken !== currentNavToken) return; // stale response, ignore
         const content = extractContent(html);
         if (content) {
-          // Cache the content
-          contentCache[normalizedHref] = content;
-          
-          // Update the page
+          contentCache[cacheKey] = content;
           replaceMainContent(content);
           updatePageTitle(html);
-          updateActiveNav(normalizedHref);
-          
-          // Update browser history
-          if (addToHistory) {
-            history.pushState({ page: normalizedHref }, '', normalizedHref);
-          }
-          
-          // Scroll to top
           window.scrollTo(0, 0);
-          
-          // Re-initialize any scripts for new content
           reinitializeScripts();
         } else {
-          // If we can't extract content, fall back to full page load
-          window.location.href = href;
+          window.location.href = fullPath;
         }
       })
-      .catch(error => {
-        console.error('Error loading page:', error);
-        // Fallback to normal navigation
-        window.location.href = href;
+      .catch(err => {
+        if (err && err.name === 'AbortError') return; // aborted, ignore
+        console.error('Error loading page:', err);
+        window.location.href = fullPath;
       });
   }
   
@@ -179,22 +185,21 @@
    * Handle click events on internal links
    */
   function handleLinkClick(e) {
+    // Only left-click without modifier keys
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
     const link = e.target.closest('a');
-    
-    // Only handle internal navigation links
-    if (link && link.href && 
-        link.hostname === window.location.hostname &&
-        !link.hasAttribute('data-no-ajax') &&
-        !link.hasAttribute('download') &&
-        link.href.endsWith('.html') &&
-        !link.href.includes('#')) {
-      
-      // Prevent default navigation
-      e.preventDefault();
-      
-      // Load the page dynamically
-      loadPage(link.href);
-    }
+    if (!link) return;
+
+    const hrefAttr = link.getAttribute('href') || '';
+    if (!hrefAttr || hrefAttr.startsWith('#') || link.hasAttribute('download') || link.target === '_blank') return;
+
+    const url = new URL(link.href, window.location.origin);
+    if (url.origin !== window.location.origin) return; // external
+    if (link.hasAttribute('data-no-ajax')) return; // opt-out
+
+    e.preventDefault();
+    loadPage(url.href, true); // use full href to retain search/hash
   }
   
   /**
@@ -212,7 +217,7 @@
     if (e.state && e.state.page) {
       loadPage(e.state.page, false);
     } else {
-      loadPage(window.location.pathname, false);
+      loadPage(window.location.pathname + window.location.search + window.location.hash, false);
     }
   });
   
@@ -223,37 +228,34 @@
     const checkInterval = setInterval(() => {
       const header = document.querySelector('#header-placeholder > *');
       const footer = document.querySelector('#footer-placeholder > *');
-      
       if (header && footer) {
         clearInterval(checkInterval);
         headerFooterLoaded = true;
-        
-        // Initialize navigation
         initializeNavigation();
         
-        // Store initial state
-        const currentPath = window.location.pathname;
-        history.replaceState({ page: currentPath }, '', currentPath);
-        
-        // Cache current page content
-        const headerPlaceholder = document.querySelector('#header-placeholder');
-        const footerPlaceholder = document.querySelector('#footer-placeholder');
-        if (headerPlaceholder && footerPlaceholder) {
-          const content = extractContent(document.documentElement.outerHTML);
-          if (content) {
-            contentCache[currentPath] = content;
-          }
+        // --- THIS IS THE SECOND CORRECTED PART ---
+        // This new line fixes the active state on the initial page load.
+        updateActiveNav(window.location.pathname);
+
+        // Align history state with current full URL
+        const fullPath = window.location.pathname + window.location.search + window.location.hash;
+        history.replaceState({ page: fullPath, cacheKey: window.location.pathname }, '', fullPath);
+
+        // Cache current page content by pathname
+        const content = extractContent(document.documentElement.outerHTML);
+        if (content) {
+          contentCache[window.location.pathname] = content;
         }
       }
     }, 50);
-    
-    // Timeout after 5 seconds
+
     setTimeout(() => {
       clearInterval(checkInterval);
       if (!headerFooterLoaded) {
         console.warn('Header/footer not loaded, navigation system may not work properly');
-        // Initialize anyway
         initializeNavigation();
+        const fullPath = window.location.pathname + window.location.search + window.location.hash;
+        history.replaceState({ page: fullPath, cacheKey: window.location.pathname }, '', fullPath);
       }
     }, 5000);
   }
