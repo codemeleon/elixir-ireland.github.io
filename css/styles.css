@@ -234,24 +234,30 @@ a:hover {
 .button-primary {
   background-color: #f47920;
   color: #ffffff;
+  border: 2px solid #f47920;
 }
 
 .button-primary:hover {
-  background-color: #e06810;
+  background-color: #ffffff;
+  color: #f47920;
+  border-color: #f47920;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(244, 121, 32, 0.3);
   text-decoration: none;
 }
 
 .button-secondary {
-  background-color: transparent;
+  background-color: #f47920;
   color: #ffffff;
-  border: 2px solid #ffffff;
+  border: 2px solid #f47920;
 }
 
 .button-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #ffffff;
+  color: #f47920;
+  border-color: #f47920;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 121, 32, 0.3);
   text-decoration: none;
 }
 
@@ -274,10 +280,13 @@ a:hover {
   color: #ffffff;
   padding: 15px 40px;
   font-size: 1.1em;
+  border: 2px solid #f47920;
 }
 
 .button-primary-large:hover {
-  background-color: #e06810;
+  background-color: #ffffff;
+  color: #f47920;
+  border-color: #f47920;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(244, 121, 32, 0.3);
   text-decoration: none;
@@ -1279,11 +1288,18 @@ section {
 }
 
 .btn-primary:hover {
-  background: #e06810;
-  border-color: #e06810;
+  background: #ffffff;
+  color: #f47d21;
+  border-color: #f47d21;
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(244, 125, 33, 0.3);
   text-decoration: none;
+}
+
+.btn-lg {
+  padding: 1em 2.5em;
+  font-size: 1.1em;
+  border: 2px solid #f47d21;
 }
 
 /* Responsive Design */
