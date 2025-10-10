@@ -25,9 +25,10 @@ description: >- # this means to ignore newlines until "baseurl:"
   organisation ELIXIR, centred in Europe, which promotes the
   sharing of resources and expertise in computational biology.
 baseurl: "/elixir-ireland.github.io" # the subpath of your site, e.g. /blog
-url: "https://codemeleon.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://elixir-ireland.ie" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: elixir-ireland
 github_username:  codemeleon
+logo: "/images/ELIXIR-IE_logo.png"
 
 # Build settings
 # theme: minima # We are removing the theme to use your custom HTML and CSS.
