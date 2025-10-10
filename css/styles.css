@@ -633,6 +633,7 @@ section {
 .feature-card-icon {
   font-size: 3rem;
   margin-bottom: 20px;
+  color: #f47d21; /* Add icon color */
 }
 
 .feature-card h3 {
@@ -876,25 +877,28 @@ section {
 .project-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 25px; /* Adjusted gap */
   margin-top: 40px;
 }
 
 .project-card {
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 25px;
+  border-radius: 12px; /* Adjusted border-radius */
+  box-shadow: none; /* Remove initial box-shadow */
+  border: 2px solid #e9ecef; /* Add border */
+  padding: 35px 30px; /* Adjusted padding */
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease; /* Use all for transition */
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer; /* Add cursor pointer */
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px); /* Adjusted transform */
+  box-shadow: 0 12px 32px rgba(244, 125, 33, 0.15); /* Add hover box-shadow */
+  border-color: #f47d21; /* Add hover border color */
 }
 
 .project-card-logo {
@@ -915,14 +919,15 @@ section {
 .project-card h3 {
   font-size: 1.3rem;
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 15px; /* Adjusted margin */
   color: #023452;
+  font-weight: 700; /* Add font-weight */
 }
 
 .project-card p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #555;
+  color: #6c757d; /* Adjusted color */
   flex-grow: 1;
 }
 
