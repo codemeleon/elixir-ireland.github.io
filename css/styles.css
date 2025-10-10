@@ -93,19 +93,20 @@ a:hover {
   padding: 0 2em;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   position: relative;
+  gap: 2em;
 }
 
 .header-logo {
-  position: absolute;
-  left: 2em;
   flex-shrink: 0;
-  width: 450px;
+  width: 350px;
+  max-width: 350px;
+  z-index: 1;
 }
 
 .header-logo img {
-  max-height: 150px;
+  max-height: 120px;
   width: auto;
   display: block;
 }
@@ -113,7 +114,8 @@ a:hover {
 .header-nav {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  flex: 1;
+  z-index: 10;
 }
 
 .header-nav ul {
@@ -129,6 +131,8 @@ a:hover {
   display: inline-block;
   margin: 0;
   padding: 0;
+  position: relative;
+  z-index: 10;
 }
 
 .header-nav ul li a {
@@ -141,6 +145,8 @@ a:hover {
   transition: all 0.3s ease;
   display: block;
   white-space: nowrap;
+  position: relative;
+  z-index: 10;
 }
 
 .header-nav ul li a:hover,
