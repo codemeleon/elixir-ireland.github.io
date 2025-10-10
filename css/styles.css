@@ -1403,6 +1403,88 @@ section {
   border: 2px solid #f47d21;
 }
 
+/* Institute List */
+.institute-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.institute-list li {
+  background-color: #e8eaed;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  justify-content: flex-start;
+}
+
+.action-buttons.centered {
+  justify-content: center;
+}
+
+.action-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Member Logos */
+.member-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  margin: 2.5rem 0;
+  align-items: start;
+}
+
+.member-logo {
+  text-align: center;
+}
+
+.logo-circle {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.logo-circle:hover {
+  border-color: #f47d21;
+  transform: scale(1.05);
+}
+
+.logo-circle img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.member-logo p {
+  font-weight: 600;
+  color: #023452;
+  margin: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 968px) {
   .featured-grid {
@@ -1425,6 +1507,10 @@ section {
 
   .about-intro-image {
     order: -1;
+  }
+
+  .member-logos-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .intro-image-placeholder {
@@ -1471,6 +1557,10 @@ section {
   .board-member {
     flex-direction: column;
     text-align: center;
+  }
+
+  .member-logos-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -1562,6 +1652,10 @@ section {
   flex-wrap: wrap;
   margin-top: 2rem;
   justify-content: flex-start;
+}
+
+.action-buttons.centered {
+  justify-content: center;
 }
 
 .action-buttons .btn {
