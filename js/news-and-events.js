@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const newsGrid = document.getElementById('news-grid');
     const paginationContainer = document.getElementById('pagination');
 
+    // Exit if the necessary elements for the news page aren't present
+    if (!newsGrid || !paginationContainer) {
+        return;
+    }
+
     let currentPage = 1;
     const itemsPerPage = 6;
     const allData = [...newsData];
