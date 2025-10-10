@@ -93,29 +93,38 @@ a:hover {
   padding: 0 2em;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   position: relative;
-  gap: 2em;
+  gap: 3em;
 }
 
 .header-logo {
+  position: absolute;
+  left: 2em;
   flex-shrink: 0;
-  width: 350px;
-  max-width: 350px;
+  width: auto;
+  max-width: none;
   z-index: 1;
 }
 
+.header-logo a {
+  display: block;
+  width: fit-content;
+  pointer-events: auto;
+}
+
 .header-logo img {
-  max-height: 120px;
+  max-height:180px;
   width: auto;
   display: block;
+  pointer-events: none;
 }
 
 .header-nav {
   display: flex;
   justify-content: center;
-  flex: 1;
   z-index: 10;
+  position: relative;
 }
 
 .header-nav ul {
@@ -377,7 +386,7 @@ main.container {
 }
 
 .news-section h2,
-.events-section h2 {
+events-section h2 {
   margin-bottom: 1.5em;
 }
 
