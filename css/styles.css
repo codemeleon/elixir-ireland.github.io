@@ -535,7 +535,7 @@ section {
 .page-hero {
   text-align: center;
   padding: 40px 20px 30px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #e9ecef 100%);
   margin-bottom: 0;
 }
 
@@ -569,7 +569,7 @@ section {
 }
 
 .content-section:nth-of-type(even) {
-  background-color: #f8f9fa;
+  background-color: #e8eaed;
 }
 
 /* About Intro Section */
@@ -690,7 +690,7 @@ section {
   align-items: flex-start;
   gap: 15px;
   padding: 20px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
   border-radius: 10px;
   border-left: 4px solid #f47d21;
   transition: all 0.3s ease;
@@ -1048,7 +1048,7 @@ section {
   width: 120px;
   height: 120px;
   margin: 0 auto 25px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #e9ecef 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1127,7 +1127,7 @@ section {
   width: 100px;
   height: 100px;
   margin: 0 auto 20px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #e9ecef 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1187,7 +1187,7 @@ section {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #f8f9fa;
+  background: #e8eaed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1238,7 +1238,7 @@ section {
   height: 60px;
   min-width: 60px;
   min-height: 60px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #e9ecef 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1712,7 +1712,7 @@ section {
   text-align: center;
   margin-top: 3rem;
   padding: 2rem;
-  background-color: #f8f9fa;
+  background-color: #e8eaed;
   border-radius: 8px;
 }
 
@@ -1851,7 +1851,7 @@ section {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: #f8f9fa;
+  background-color: #e8eaed;
   padding: 0.75rem;
   border-radius: 8px;
 }
