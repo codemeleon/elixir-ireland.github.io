@@ -17,6 +17,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/news.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="js/navigation.js" defer></script>
   </head>
@@ -35,69 +36,15 @@
         </div>
       </section>
 
-      <!-- News Grid Section -->
+      <!-- News and Events Section -->
       <section class="content-section">
         <div class="container">
-          <div class="news-grid" id="newsGrid">
-            <!-- News Card 1 -->
-            <article class="news-card" onclick="window.location.href='news/elixir-ireland-workshop-2024.html'">
-              <div class="news-card-image">
-                <img src="https://via.placeholder.com/400x250/023452/ffffff?text=Workshop+2024" alt="ELIXIR Ireland Workshop 2024">
-              </div>
-              <div class="news-card-content">
-                <time class="news-card-date" datetime="2024-03-15">March 15, 2024</time>
-                <h3 class="news-card-title">ELIXIR Ireland Bioinformatics Workshop 2024</h3>
-                <p class="news-card-excerpt">Join us for our annual bioinformatics workshop featuring cutting-edge research presentations, hands-on training sessions, and networking opportunities with leading researchers across Ireland.</p>
-                <span class="news-card-link">Read more →</span>
-              </div>
-            </article>
-
-            <!-- News Card 2 -->
-            <article class="news-card" onclick="window.location.href='news/new-data-resource-launch.html'">
-              <div class="news-card-image">
-                <img src="https://via.placeholder.com/400x250/f47d21/ffffff?text=Data+Resource" alt="New Data Resource Launch">
-              </div>
-              <div class="news-card-content">
-                <time class="news-card-date" datetime="2024-02-28">February 28, 2024</time>
-                <h3 class="news-card-title">New Data Resource Launched for Irish Researchers</h3>
-                <p class="news-card-excerpt">ELIXIR Ireland announces the launch of a comprehensive new data resource providing access to genomic datasets and analysis tools for the Irish research community.</p>
-                <span class="news-card-link">Read more →</span>
-              </div>
-            </article>
-
-            <!-- News Card 3 -->
-            <article class="news-card" onclick="window.location.href='news/training-programme-announcement.html'">
-              <div class="news-card-image">
-                <img src="https://via.placeholder.com/400x250/034a73/ffffff?text=Training+Programme" alt="Training Programme">
-              </div>
-              <div class="news-card-content">
-                <time class="news-card-date" datetime="2024-02-10">February 10, 2024</time>
-                <h3 class="news-card-title">Spring Training Programme Announcement</h3>
-                <p class="news-card-excerpt">Registration is now open for our Spring 2024 training programme featuring courses in RNA-seq analysis, machine learning for bioinformatics, and data management best practices.</p>
-                <span class="news-card-link">Read more →</span>
-              </div>
-            </article>
+          <div id="news-grid" class="news-grid">
+            <!-- News cards will be injected here by JavaScript -->
           </div>
 
-          <!-- Pagination -->
           <div class="pagination" id="pagination">
-            <button class="pagination-btn pagination-prev" id="prevBtn" disabled>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-              Previous
-            </button>
-            <div class="pagination-numbers" id="paginationNumbers">
-              <button class="pagination-number active">1</button>
-              <button class="pagination-number">2</button>
-              <button class="pagination-number">3</button>
-            </div>
-            <button class="pagination-btn pagination-next" id="nextBtn">
-              Next
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
+            <!-- Pagination controls will be injected here by JavaScript -->
           </div>
         </div>
       </section>
@@ -107,6 +54,7 @@
     <div id="footer-placeholder"></div>
 
     <script src="js/ei.js"></script>
-    <script src="js/news-pagination.js"></script>
+    <script src="js/news-data.js"></script>
+    <script src="js/news-and-events.js"></script>
   </body>
 </html>
