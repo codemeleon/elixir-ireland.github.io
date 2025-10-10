@@ -904,7 +904,7 @@ section {
   width: 80px;
   height: 80px;
   min-width: 80px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: #ffffff;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -912,12 +912,21 @@ section {
   font-size: 2.5rem;
   border: 2px solid #dee2e6;
   transition: all 0.3s ease;
+  padding: 8px;
+  overflow: hidden;
+}
+
+.institute-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .institute-card:hover .institute-icon {
-  background: linear-gradient(135deg, #f47d21 0%, #ff9447 100%);
+  background: #ffffff;
   border-color: #f47d21;
   transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(244, 125, 33, 0.2);
 }
 
 .institute-info {
