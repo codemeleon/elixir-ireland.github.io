@@ -143,16 +143,26 @@ a:hover {
   white-space: nowrap;
 }
 
-.header-nav ul li a:hover {
+.header-nav ul li a:hover,
+.header-nav ul li .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
   text-decoration: none;
   color: #ffffff;
 }
 
-.header-nav ul li.active a {
+.header-nav ul li.active a,
+.header-nav ul li a.active {
   background-color: rgba(255, 255, 255, 0.2);
   font-weight: 700;
+}
+
+.header-nav ul li.active a:hover,
+.header-nav ul li a.active:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: #ffffff;
 }
 
 /* Hero Section */
