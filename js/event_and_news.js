@@ -1,0 +1,110 @@
+// This file will contain shared logic for the Events and News pages.
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if we are on a page that needs this functionality
+    const newsContainer = document.getElementById('news-container');
+    if (!newsContainer) {
+        return; // Exit if the container is not found
+    }
+
+    const paginationContainer = document.getElementById('pagination-container');
+    const itemsPerPage = 6;
+    let currentPage = 1;
+
+    // Sort news items by date, newest first, if newsItems exists
+    const sortedNewsItems = typeof newsItems !== 'undefined' 
+        ? newsItems.sort((a, b) => new Date(b.date) - new Date(a.date))
+        : [];
+
+    function displayNews(page) {
+        newsContainer.innerHTML = '';
+        page = page || 1;
+        currentPage = page;
+
+        if (sortedNewsItems.length === 0) {
+            newsContainer.innerHTML = '<p>No news items to display.</p>';
+            paginationContainer.innerHTML = '';
+            return;
+        }
+
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedItems = sortedNewsItems.slice(startIndex, endIndex);
+
+        for (const item of paginatedItems) {
+            const newsCard = document.createElement('div');
+            newsCard.className = 'card';
+
+            const cardContent = document.createElement('div');
+            cardContent.className = 'card-content';
+
+            const title = document.createElement('h3');
+            title.textContent = item.title;
+
+            const date = document.createElement('div');
+            date.className = 'card-date';
+            date.textContent = new Date(item.date).toLocaleDateString('en-IE', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            const summary = document.createElement('p');
+            summary.textContent = item.summary;
+
+            const readMore = document.createElement('a');
+            readMore.href = item.link;
+            readMore.className = 'read-more';
+            readMore.textContent = 'Read More';
+
+            cardContent.appendChild(title);
+            cardContent.appendChild(date);
+            cardContent.appendChild(summary);
+            cardContent.appendChild(readMore);
+            newsCard.appendChild(cardContent);
+            newsContainer.appendChild(newsCard);
+        }
+        setupPagination();
+    }
+
+    function setupPagination() {
+        paginationContainer.innerHTML = '';
+        const pageCount = Math.ceil(sortedNewsItems.length / itemsPerPage);
+
+        if (pageCount <= 1) return;
+
+        // Previous button
+        const prevButton = document.createElement('button');
+        prevButton.textContent = 'Prev';
+        prevButton.disabled = currentPage === 1;
+        prevButton.addEventListener('click', () => {
+            if (currentPage > 1) {
+                displayNews(currentPage - 1);
+            }
+        });
+        paginationContainer.appendChild(prevButton);
+
+        // Page numbers
+        for (let i = 1; i <= pageCount; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.textContent = i;
+            if (i === currentPage) {
+                pageButton.classList.add('active');
+            }
+            pageButton.addEventListener('click', () => {
+                displayNews(i);
+            });
+            paginationContainer.appendChild(pageButton);
+        }
+
+        // Next button
+        const nextButton = document.createElement('button');
+        nextButton.textContent = 'Next';
+        nextButton.disabled = currentPage === pageCount;
+        nextButton.addEventListener('click', () => {
+            if (currentPage < pageCount) {
+                displayNews(currentPage + 1);
+            }
+        });
+        paginationContainer.appendChild(nextButton);
+    }
+
+    // Initial display
+    displayNews(1);
+});

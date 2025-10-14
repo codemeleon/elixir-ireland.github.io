@@ -407,14 +407,45 @@ main.container {
   margin-bottom: 1.5em;
 }
 
+/* Hide news item styles that are no longer in use */
+/*
 .news-item {
-  background: #ffffff;
-  padding: 1.5em;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
   border-radius: 8px;
-  margin-bottom: 1.5em;
-  border-left: 4px solid #f47920;
-  flex-grow: 1;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
 }
+
+.news-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.news-item-content h3 {
+  margin-top: 0;
+  color: #333333;
+}
+
+.news-date {
+  color: #555555;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+*/
 
 /* CTA Section */
 .cta-section {
@@ -570,6 +601,12 @@ section {
 
 .content-section:nth-of-type(even) {
   background-color: #e8eaed;
+}
+
+.content-section .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 /* About Intro Section */
@@ -751,8 +788,9 @@ section {
 
 /* Container for content within sections */
 .content-section .container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 .section-header {
@@ -1994,6 +2032,137 @@ section {
     margin: 0;
   }
 }
+
+/*--------------------------------------------------------------
+# Content Sections
+--------------------------------------------------------------*/
+
+.content-section .container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Card styles for News and Events */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content h3 {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #005686; /* ELIXIR Blue */
+}
+
+.card-content .card-date {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.card-content p {
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.card-content .read-more {
+  display: inline-block;
+  padding: 8px 15px;
+  background: #005686; /* ELIXIR Blue */
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+.card-content .read-more:hover {
+  background: #003c5c; /* Darker ELIXIR Blue */
+}
+
+.card .btn {
+  margin-top: auto;
+  align-self: center;
+}
+
+.card .news-date {
+  color: #555;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+/* News & Events Specific Styles */
+.pagination {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.pagination button {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  color: #005686;
+  padding: 8px 16px;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 4px;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #e9ecef;
+}
+
+.pagination button:disabled {
+  color: #6c757d;
+  cursor: not-allowed;
+  background-color: #f8f9fa;
+}
+
+.pagination button.active {
+  background-color: #005686;
+  color: #fff;
+  border-color: #005686;
+}
+
+#page-info {
+  margin: 0 15px;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
 
 /* ==========================================================================
    End of File
