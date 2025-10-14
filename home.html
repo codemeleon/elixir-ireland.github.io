@@ -80,11 +80,11 @@
           <!-- Latest News Card -->
           <div class="news-section">
             <h2>📰 Latest News</h2>
-            <div class="news-item">
-              <p class="news-date">January 15, 2024</p>
-              <h3>ELIXIR Ireland Launches New Training Programme</h3>
-              <p>We are excited to announce our comprehensive bioinformatics training initiative for 2024, featuring workshops on RNA-seq analysis, machine learning, and cloud computing.</p>
-              <a href="news.html" class="text-link">Read more →</a>
+            <div class="news-item" id="latest-news-item">
+              <!-- This will be filled dynamically by JavaScript -->
+              <p class="news-date">Loading latest news...</p>
+              <h3>Loading...</h3>
+              <p>Please wait while we fetch the latest news.</p>
             </div>
             <a href="news.html" class="button button-primary">View All News</a>
           </div>
@@ -92,11 +92,11 @@
           <!-- Upcoming Events Card -->
           <div class="events-section">
             <h2>📅 Upcoming Events</h2>
-            <div class="news-item">
-              <p class="news-date">April 15-17, 2024</p>
-              <h3>Introduction to RNA-seq Analysis</h3>
-              <p>Learn the complete RNA-seq analysis pipeline from quality control to differential expression analysis. Hands-on training with FastQC, STAR, and DESeq2.</p>
-              <a href="events.html" class="text-link">View details →</a>
+            <div class="news-item" id="latest-event-item">
+              <!-- This will be filled dynamically by JavaScript -->
+              <p class="news-date">Loading latest events...</p>
+              <h3>Loading...</h3>
+              <p>Please wait while we fetch the upcoming events.</p>
             </div>
             <a href="events.html" class="button button-secondary">View All Events</a>
           </div>
@@ -117,5 +117,81 @@
     <div id="footer-placeholder"></div>
 
     <script src="js/ei.js"></script>
+    <script src="js/news_items.js"></script>
+    <script src="js/events_items.js"></script>
+    <script>
+      // Function to display the latest news
+      function displayLatestNews() {
+        if (typeof newsItems !== 'undefined' && newsItems.length > 0) {
+          // Sort news by date (newest first)
+          const sortedNews = [...newsItems].sort((a, b) => new Date(b.date) - new Date(a.date));
+          const latestNews = sortedNews[0];
+          
+          const newsContainer = document.getElementById('latest-news-item');
+          if (newsContainer) {
+            const date = new Date(latestNews.date).toLocaleDateString('en-IE', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            });
+            
+            // Update the news item content
+            newsContainer.innerHTML = `
+              <p class="news-date">${date}</p>
+              <h3>${latestNews.title}</h3>
+              <p>${latestNews.summary}</p>
+              <a href="${latestNews.link || 'news.html'}" class="text-link">Read more →</a>
+            `;
+          }
+        }
+      }
+      
+      // Function to display the latest upcoming event
+      function displayUpcomingEvent() {
+        if (typeof eventsItems !== 'undefined' && eventsItems.length > 0) {
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          
+          // Filter for upcoming events and sort by date (soonest first)
+          const upcomingEvents = eventsItems
+            .filter(event => new Date(event.date) >= today)
+            .sort((a, b) => new Date(a.date) - new Date(b.date));
+          
+          const eventContainer = document.getElementById('latest-event-item');
+          if (eventContainer) {
+            if (upcomingEvents.length > 0) {
+              const nextEvent = upcomingEvents[0];
+              const date = new Date(nextEvent.date).toLocaleDateString('en-IE', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+              });
+              
+              // Update the event item content
+              eventContainer.innerHTML = `
+                <p class="news-date">${date}</p>
+                <h3>${nextEvent.title}</h3>
+                <p>${nextEvent.summary || 'Join us for this upcoming event. Click below for more details.'}</p>
+                <a href="${nextEvent.link || 'events.html'}" class="text-link">View details →</a>
+              `;
+            } else {
+              // No upcoming events
+              eventContainer.innerHTML = `
+                <p class="news-date">Stay tuned!</p>
+                <h3>No upcoming events</h3>
+                <p>Check back soon for our next scheduled events.</p>
+                <a href="events.html" class="text-link">View past events →</a>
+              `;
+            }
+          }
+        }
+      }
+      
+      // Execute when the page loads
+      document.addEventListener('DOMContentLoaded', function() {
+        displayLatestNews();
+        displayUpcomingEvent();
+      });
+    </script>
   </body>
 </html>

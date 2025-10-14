@@ -49,6 +49,9 @@
     margin-bottom: 1rem;
     align-self: center;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
 }
 
 .event-status-badge.upcoming {
