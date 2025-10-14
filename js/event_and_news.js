@@ -1,6 +1,7 @@
-// This file will contain shared logic for the Events and News pages.
+// This file contains shared logic for the News page.
 
-document.addEventListener('DOMContentLoaded', function() {
+// Make the initialization function globally accessible so navigation.js can call it
+window.initializeNews = function() {
     // Check if we are on a page that needs this functionality
     const newsContainer = document.getElementById('news-container');
     if (!newsContainer) {
@@ -15,6 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const sortedNewsItems = typeof newsItems !== 'undefined' 
         ? newsItems.sort((a, b) => new Date(b.date) - new Date(a.date))
         : [];
+        
+    console.log("News initialized with items:", sortedNewsItems.length);
 
     function displayNews(page) {
         newsContainer.innerHTML = '';
@@ -22,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentPage = page;
 
         if (sortedNewsItems.length === 0) {
-            newsContainer.innerHTML = '<p>No news items to display.</p>';
+            newsContainer.innerHTML = '<p class="no-news-message">No news items to display.</p>';
             paginationContainer.innerHTML = '';
             return;
         }
@@ -87,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
         prevButton.addEventListener('click', () => {
             if (currentPage > 1) {
                 displayNews(currentPage - 1);
+                window.scrollTo({top: 0, behavior: 'smooth'});
             }
         });
         paginationContainer.appendChild(prevButton);
@@ -100,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             pageButton.addEventListener('click', () => {
                 displayNews(i);
+                window.scrollTo({top: 0, behavior: 'smooth'});
             });
             paginationContainer.appendChild(pageButton);
         }
@@ -111,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
         nextButton.addEventListener('click', () => {
             if (currentPage < pageCount) {
                 displayNews(currentPage + 1);
+                window.scrollTo({top: 0, behavior: 'smooth'});
             }
         });
         paginationContainer.appendChild(nextButton);
@@ -118,4 +124,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initial display
     displayNews(1);
-});
+};
+
+// Initialize on both DOMContentLoaded and the custom contentLoaded event
+document.addEventListener('DOMContentLoaded', window.initializeNews);
+document.addEventListener('contentLoaded', window.initializeNews);

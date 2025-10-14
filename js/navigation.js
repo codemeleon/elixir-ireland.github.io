@@ -74,7 +74,6 @@
   
   /**
    * Update active navigation state
-   * --- THIS IS THE FIRST CORRECTED PART ---
    */
   function updateActiveNav(path) {
     // Use the provided path, or default to the current window's location if none is given
@@ -120,8 +119,13 @@
       if (myToken !== currentNavToken) return; // stale
       replaceMainContent(contentCache[cacheKey]);
       window.scrollTo(0, 0);
+      // Still reinitialize scripts even when loading from cache
+      reinitializeScripts(cacheKey);
       return;
     }
+
+    // Show loading indicator
+    document.body.classList.add('loading');
 
     // Fetch with abort support and ignore stale responses
     fetch(fullPath, { signal: currentAbortController.signal })
@@ -130,6 +134,7 @@
         return response.text();
       })
       .then(html => {
+        document.body.classList.remove('loading');
         if (myToken !== currentNavToken) return; // stale response, ignore
         const content = extractContent(html);
         if (content) {
@@ -137,12 +142,13 @@
           replaceMainContent(content);
           updatePageTitle(html);
           window.scrollTo(0, 0);
-          reinitializeScripts();
+          reinitializeScripts(cacheKey);
         } else {
           window.location.href = fullPath;
         }
       })
       .catch(err => {
+        document.body.classList.remove('loading');
         if (err && err.name === 'AbortError') return; // aborted, ignore
         console.error('Error loading page:', err);
         window.location.href = fullPath;
@@ -176,9 +182,42 @@
   /**
    * Reinitialize scripts for dynamically loaded content
    */
-  function reinitializeScripts() {
-    // Dispatch a custom event that other scripts can listen to
+  function reinitializeScripts(path) {
+    // First dispatch custom event for existing scripts that listen for it
     document.dispatchEvent(new CustomEvent('contentLoaded'));
+
+    path = path || window.location.pathname;
+
+    // Helper to load a script and return a promise
+    function loadScript(src) {
+        // If script already exists, remove it to force re-execution
+        const existingScript = document.querySelector(`script[src="${src}"]`);
+        if (existingScript) {
+            existingScript.remove();
+        }
+
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = src;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.body.appendChild(script);
+        });
+    }
+
+    // Load page-specific scripts based on pathname
+    if (path.includes('news.html')) {
+        // Load data first, then the script that uses it.
+        loadScript('js/news_items.js')
+            .then(() => loadScript('js/event_and_news.js'))
+            .catch(err => console.error('Error loading news scripts:', err));
+    } 
+    else if (path.includes('events.html')) {
+        // Load data first, then the script that uses it.
+        loadScript('js/events_items.js')
+            .then(() => loadScript('js/events.js'))
+            .catch(err => console.error('Error loading events scripts:', err));
+    }
   }
   
   /**
@@ -233,7 +272,6 @@
         headerFooterLoaded = true;
         initializeNavigation();
         
-        // --- THIS IS THE SECOND CORRECTED PART ---
         // This new line fixes the active state on the initial page load.
         updateActiveNav(window.location.pathname);
 
@@ -246,6 +284,9 @@
         if (content) {
           contentCache[window.location.pathname] = content;
         }
+        
+        // Initialize scripts on first load
+        reinitializeScripts();
       }
     }, 50);
 

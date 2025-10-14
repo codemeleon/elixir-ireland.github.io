@@ -407,45 +407,14 @@ main.container {
   margin-bottom: 1.5em;
 }
 
-/* Hide news item styles that are no longer in use */
-/*
 .news-item {
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
+  background: #ffffff;
+  padding: 1.5em;
   border-radius: 8px;
-  margin-bottom: 20px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease;
+  margin-bottom: 1.5em;
+  border-left: 4px solid #f47920;
+  flex-grow: 1;
 }
-
-.news-item:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.news-item-content h3 {
-  margin-top: 0;
-  color: #333333;
-}
-
-.news-date {
-  color: #555555;
-  font-size: 0.9em;
-  margin-bottom: 10px;
-}
-
-.read-more {
-  display: inline-block;
-  margin-top: 10px;
-  color: #007bff;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.read-more:hover {
-  text-decoration: underline;
-}
-*/
 
 /* CTA Section */
 .cta-section {
@@ -2107,20 +2076,8 @@ section {
   background: #003c5c; /* Darker ELIXIR Blue */
 }
 
-.card .btn {
-  margin-top: auto;
-  align-self: center;
-}
-
-.card .news-date {
-  color: #555;
-  font-size: 0.9em;
-  margin-bottom: 10px;
-}
-
-/* News & Events Specific Styles */
+/* Pagination Styles */
 .pagination {
-  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
