@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Events - ELIXIR Ireland</title>
+    <title>News - ELIXIR Ireland</title>
     <meta
       name="description"
-      content="ELIXIR Ireland is the Irish node of the international organisation ELIXIR, which promotes the sharing of resources and expertise in computational biology."
+      content="Latest news and updates from ELIXIR Ireland, the Irish node of the international organisation ELIXIR."
     />
     <link
       rel="shortcut icon"
@@ -17,6 +17,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/news.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="js/navigation.js" defer></script>
   </head>
@@ -35,9 +36,13 @@
       </section>
 
       <section class="content-section">
-        <div class="container" style="text-align: center; padding: 80px 20px;">
-          <h2>Coming Soon</h2>
-          <p style="font-size: 1.2rem; color: #6c757d;">Our new News and Updates section is under construction. Please check back shortly!</p>
+        <div class="container">
+          <div id="news-container" class="card-container">
+            <!-- News items will be injected here by JavaScript -->
+          </div>
+          <div id="pagination-container" class="pagination">
+            <!-- Pagination controls will be injected here by JavaScript -->
+          </div>
         </div>
       </section>
     </main>
@@ -46,5 +51,7 @@
     <div id="footer-placeholder"></div>
 
     <script src="js/ei.js"></script>
+    <script src="js/news_items.js"></script>
+    <script src="js/event_and_news.js"></script>
   </body>
 </html>

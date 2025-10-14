@@ -5,7 +5,7 @@
     <title>Events - ELIXIR Ireland</title>
     <meta
       name="description"
-      content="Upcoming and past events from ELIXIR Ireland, including workshops, webinars, and training sessions."
+      content="ELIXIR Ireland is the Irish node of the international organisation ELIXIR, which promotes the sharing of resources and expertise in computational biology."
     />
     <link
       rel="shortcut icon"
@@ -30,17 +30,29 @@
     <main>
       <section class="page-hero">
         <div class="page-hero-content">
-          <h1>Events</h1>
-          <p class="lead">
-            Join our workshops, webinars, and training sessions to enhance your bioinformatics skills.
-          </p>
+          <h1>Events & Training</h1>
+          <p class="lead">Join us for workshops, training sessions, and community events</p>
         </div>
       </section>
 
       <section class="content-section">
-        <div class="container" style="text-align: center; padding: 80px 20px;">
-          <h2>Coming Soon</h2>
-          <p style="font-size: 1.2rem; color: #6c757d;">Our new Events section is under construction. Please check back shortly!</p>
+        <div class="container">
+          <!-- Filter Buttons -->
+          <div class="events-filter">
+            <button class="filter-btn active" data-filter="all">All Events</button>
+            <button class="filter-btn" data-filter="upcoming">Upcoming Events</button>
+            <button class="filter-btn" data-filter="past">Past Events</button>
+          </div>
+
+          <!-- Events Container -->
+          <div id="events-container" class="card-container">
+            <!-- Event items will be injected here by JavaScript -->
+          </div>
+
+          <!-- Pagination -->
+          <div id="events-pagination-container" class="pagination">
+            <!-- Pagination controls will be injected here by JavaScript -->
+          </div>
         </div>
       </section>
     </main>
@@ -49,5 +61,7 @@
     <div id="footer-placeholder"></div>
 
     <script src="js/ei.js"></script>
+    <script src="js/events_items.js"></script>
+    <script src="js/events.js"></script>
   </body>
 </html>
