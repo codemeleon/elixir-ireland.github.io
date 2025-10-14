@@ -93,6 +93,28 @@
   }
   
   /**
+   * Dynamically loads page-specific stylesheets from fetched HTML.
+   * It checks if a stylesheet already exists before adding it.
+   */
+  function loadPageStyles(html) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const newStyles = doc.querySelectorAll('head link[rel="stylesheet"]');
+
+    newStyles.forEach(styleLink => {
+      const href = styleLink.getAttribute('href');
+      // Check if a stylesheet with the same href is already in the document's head
+      if (href && !document.querySelector(`link[href="${href}"]`)) {
+        const newLink = document.createElement('link');
+        newLink.rel = 'stylesheet';
+        newLink.type = 'text/css';
+        newLink.href = href;
+        document.head.appendChild(newLink);
+      }
+    });
+  }
+
+  /**
    * Load page content via AJAX
    */
   function loadPage(href, addToHistory = true) {
@@ -136,6 +158,10 @@
       .then(html => {
         document.body.classList.remove('loading');
         if (myToken !== currentNavToken) return; // stale response, ignore
+
+        // Load page-specific stylesheets
+        loadPageStyles(html);
+
         const content = extractContent(html);
         if (content) {
           contentCache[cacheKey] = content;
