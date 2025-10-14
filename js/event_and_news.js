@@ -35,10 +35,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const newsCard = document.createElement('div');
             newsCard.className = 'card';
 
+            // Add image if available
+            if (item.image) {
+                const cardImage = document.createElement('img');
+                cardImage.className = 'card-image';
+                cardImage.src = item.image;
+                cardImage.alt = item.title;
+                newsCard.appendChild(cardImage);
+            }
+
             const cardContent = document.createElement('div');
             cardContent.className = 'card-content';
 
             const title = document.createElement('h3');
+            title.className = 'card-title';
             title.textContent = item.title;
 
             const date = document.createElement('div');
@@ -46,12 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
             date.textContent = new Date(item.date).toLocaleDateString('en-IE', { year: 'numeric', month: 'long', day: 'numeric' });
 
             const summary = document.createElement('p');
+            summary.className = 'card-text';
             summary.textContent = item.summary;
 
             const readMore = document.createElement('a');
             readMore.href = item.link;
-            readMore.className = 'read-more';
-            readMore.textContent = 'Read More';
+            readMore.className = 'card-link';
+            readMore.textContent = 'Read More →';
 
             cardContent.appendChild(title);
             cardContent.appendChild(date);
