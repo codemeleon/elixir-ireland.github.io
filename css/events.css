@@ -28,9 +28,6 @@
     width: 100%;
     height: 200px;
     object-fit: contain;
-    padding: 8px; /* Add some padding around the image */
-    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
-    background-color: #f8f9fa; /* Add a background color to the image container area */
 }
 
 .card-content {
@@ -133,7 +130,7 @@
     border-color: #e06810;
 }
 
-/* Filter Buttons */
+/* Filter Buttons - Enhanced specificity and fixed styling */
 .events-filter {
     display: flex;
     justify-content: center;
@@ -142,8 +139,9 @@
     flex-wrap: wrap;
 }
 
-.filter-btn {
-    background: #ffffff;
+.events-filter .filter-btn {
+    display: inline-block;
+    background-color: #ffffff;
     border: 2px solid #e0e0e0;
     color: #023452;
     padding: 12px 30px;
@@ -152,9 +150,13 @@
     border-radius: 25px;
     font-weight: 600;
     font-size: 1rem;
+    text-decoration: none;
+    margin: 0;
+    box-shadow: none;
+    text-align: center;
 }
 
-.filter-btn:hover {
+.events-filter .filter-btn:hover {
     background-color: #f47920;
     color: #ffffff;
     border-color: #f47920;
@@ -162,14 +164,14 @@
     box-shadow: 0 4px 12px rgba(244, 121, 32, 0.3);
 }
 
-.filter-btn.active {
+.events-filter .filter-btn.active {
     background-color: #023452;
     color: #ffffff;
     border-color: #023452;
     box-shadow: 0 2px 8px rgba(2, 52, 82, 0.3);
 }
 
-.filter-btn.active:hover {
+.events-filter .filter-btn.active:hover {
     background-color: #034a73;
     border-color: #034a73;
 }
@@ -247,7 +249,7 @@
         align-items: stretch;
     }
 
-    .filter-btn {
+    .events-filter .filter-btn {
         width: 100%;
     }
 
