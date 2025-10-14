@@ -35,7 +35,6 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    position: relative;
 }
 
 /* Event Status Badge */
@@ -48,11 +47,7 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 1rem;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 1rem;
-    z-index: 2;
+    align-self: center;
     text-align: center;
 }
 
@@ -73,8 +68,6 @@
     font-weight: 600;
     margin-bottom: 0.75rem;
     color: #023452;
-    margin-top: 2rem; /* Add more space for the badge above the title */
-    text-align: center;
 }
 
 .card-date {
@@ -138,7 +131,7 @@
     border-color: #e06810;
 }
 
-/* Filter Buttons - Enhanced specificity and fixed styling */
+/* Filter Buttons */
 .events-filter {
     display: flex;
     justify-content: center;
@@ -147,9 +140,8 @@
     flex-wrap: wrap;
 }
 
-.events-filter .filter-btn {
-    display: inline-block;
-    background-color: #ffffff;
+.filter-btn {
+    background: #ffffff;
     border: 2px solid #e0e0e0;
     color: #023452;
     padding: 12px 30px;
@@ -158,13 +150,9 @@
     border-radius: 25px;
     font-weight: 600;
     font-size: 1rem;
-    text-decoration: none;
-    margin: 0;
-    box-shadow: none;
-    text-align: center;
 }
 
-.events-filter .filter-btn:hover {
+.filter-btn:hover {
     background-color: #f47920;
     color: #ffffff;
     border-color: #f47920;
@@ -172,14 +160,14 @@
     box-shadow: 0 4px 12px rgba(244, 121, 32, 0.3);
 }
 
-.events-filter .filter-btn.active {
+.filter-btn.active {
     background-color: #023452;
     color: #ffffff;
     border-color: #023452;
     box-shadow: 0 2px 8px rgba(2, 52, 82, 0.3);
 }
 
-.events-filter .filter-btn.active:hover {
+.filter-btn.active:hover {
     background-color: #034a73;
     border-color: #034a73;
 }
@@ -257,7 +245,7 @@
         align-items: stretch;
     }
 
-    .events-filter .filter-btn {
+    .filter-btn {
         width: 100%;
     }
 
