@@ -183,9 +183,6 @@
    * Reinitialize scripts for dynamically loaded content
    */
   function reinitializeScripts(path) {
-    // First dispatch custom event for existing scripts that listen for it
-    document.dispatchEvent(new CustomEvent('contentLoaded'));
-
     path = path || window.location.pathname;
 
     // Helper to load a script and return a promise
@@ -199,23 +196,40 @@
         return new Promise((resolve, reject) => {
             const script = document.createElement('script');
             script.src = src;
+            script.async = false; // Ensure scripts execute in order
             script.onload = resolve;
-            script.onerror = reject;
+            script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
             document.body.appendChild(script);
         });
     }
 
     // Load page-specific scripts based on pathname
     if (path.includes('news.html')) {
-        // Load data first, then the script that uses it.
+        // Load data first, then the script, then call the initializer
         loadScript('js/news_items.js')
             .then(() => loadScript('js/event_and_news.js'))
+            .then(() => {
+                if (window.initializeNews) {
+                    console.log("Calling initializeNews");
+                    window.initializeNews();
+                } else {
+                    console.warn("initializeNews function not found");
+                }
+            })
             .catch(err => console.error('Error loading news scripts:', err));
     } 
     else if (path.includes('events.html')) {
-        // Load data first, then the script that uses it.
+        // Load data first, then the script, then call the initializer
         loadScript('js/events_items.js')
             .then(() => loadScript('js/events.js'))
+            .then(() => {
+                if (window.initializeEvents) {
+                    console.log("Calling initializeEvents");
+                    window.initializeEvents();
+                } else {
+                    console.warn("initializeEvents function not found");
+                }
+            })
             .catch(err => console.error('Error loading events scripts:', err));
     }
   }

@@ -1,5 +1,5 @@
 // Events page logic with filtering for upcoming vs past events
-document.addEventListener('DOMContentLoaded', function() {
+window.initializeEvents = function() {
     // Check if we are on the events page
     const eventsContainer = document.getElementById('events-container');
     if (!eventsContainer) {
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const past = [];
 
         if (typeof eventsItems === 'undefined') {
+            console.warn('eventsItems data is not loaded.');
             return { upcoming: [], past: [] };
         }
 
@@ -208,4 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initial display - show all events
     filterEvents('all');
-});
+};
+
+// Initialize on DOMContentLoaded (for direct page load)
+document.addEventListener('DOMContentLoaded', window.initializeEvents);

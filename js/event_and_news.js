@@ -126,6 +126,5 @@ window.initializeNews = function() {
     displayNews(1);
 };
 
-// Initialize on both DOMContentLoaded and the custom contentLoaded event
+// Initialize on DOMContentLoaded (for direct page load)
 document.addEventListener('DOMContentLoaded', window.initializeNews);
-document.addEventListener('contentLoaded', window.initializeNews);
