@@ -232,6 +232,25 @@
             })
             .catch(err => console.error('Error loading events scripts:', err));
     }
+    // Handle home page dynamic content
+    else if (path.includes('home.html') || path === '/' || path.endsWith('/')) {
+        Promise.all([
+            loadScript('js/news_items.js'),
+            loadScript('js/events_items.js')
+        ])
+        .then(() => {
+            // Call the home page functions if they exist
+            if (typeof displayLatestNews === 'function') {
+                console.log("Calling displayLatestNews");
+                displayLatestNews();
+            }
+            if (typeof displayUpcomingEvent === 'function') {
+                console.log("Calling displayUpcomingEvent");
+                displayUpcomingEvent();
+            }
+        })
+        .catch(err => console.error('Error loading home page scripts:', err));
+    }
   }
   
   /**

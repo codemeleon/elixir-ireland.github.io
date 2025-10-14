@@ -120,6 +120,30 @@
     <script src="js/news_items.js"></script>
     <script src="js/events_items.js"></script>
     <script>
+      // Home page dynamic content loader
+      document.addEventListener('DOMContentLoaded', function() {
+        // Check if data is already loaded
+        if (typeof newsItems !== 'undefined') {
+          displayLatestNews();
+        } else {
+          // Load news items script if not already loaded
+          const newsScript = document.createElement('script');
+          newsScript.src = 'js/news_items.js';
+          newsScript.onload = displayLatestNews;
+          document.body.appendChild(newsScript);
+        }
+        
+        if (typeof eventsItems !== 'undefined') {
+          displayUpcomingEvent();
+        } else {
+          // Load events items script if not already loaded
+          const eventsScript = document.createElement('script');
+          eventsScript.src = 'js/events_items.js';
+          eventsScript.onload = displayUpcomingEvent;
+          document.body.appendChild(eventsScript);
+        }
+      });
+      
       // Function to display the latest news
       function displayLatestNews() {
         if (typeof newsItems !== 'undefined' && newsItems.length > 0) {
@@ -187,11 +211,15 @@
         }
       }
       
-      // Execute when the page loads
-      document.addEventListener('DOMContentLoaded', function() {
+      // Ensure the functions get called immediately if the page is visited directly
+      // and scripts are already loaded
+      if (typeof newsItems !== 'undefined') {
         displayLatestNews();
+      }
+      
+      if (typeof eventsItems !== 'undefined') {
         displayUpcomingEvent();
-      });
+      }
     </script>
   </body>
 </html>
