@@ -1,7 +1,7 @@
 // This file can be used for any custom JavaScript functionality for the site.
 
 // Load header and footer efficiently with caching
-(function() {
+(function () {
   // Immediately inject header to prevent flash
   const headerHTML = `
     <header>
@@ -48,7 +48,7 @@
 function setActiveNavLink() {
   const currentPage = window.location.pathname.split("/").pop() || "home.html";
   const navLinks = document.querySelectorAll(".nav-link");
-  
+
   navLinks.forEach((link) => {
     const linkPage = link.getAttribute("href");
     if (linkPage === currentPage || (currentPage === "" && linkPage === "home.html") || (currentPage === "home.html" && linkPage === "home.html")) {
@@ -86,3 +86,31 @@ function loadHeader() {
   document.getElementById("header-placeholder").innerHTML = header;
   setActiveNavLink();
 }
+
+// Auto-load content when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if we're on the home page (index.html or root)
+  const isHomePage = window.location.pathname === '/' || 
+                     window.location.pathname === '/index.html' || 
+                     window.location.pathname.endsWith('/index.html');
+  
+  // Check if we're on the events page
+  const isEventsPage = window.location.pathname.includes('events.html');
+  
+  if (isHomePage) {
+    // Load news and events for home page
+    if (typeof loadNews === 'function') {
+      loadNews();
+    }
+    if (typeof loadHomeEvents === 'function') {
+      loadHomeEvents();
+    }
+  }
+  
+  if (isEventsPage) {
+    // Load events for events page
+    if (typeof loadEvents === 'function') {
+      loadEvents();
+    }
+  }
+});
