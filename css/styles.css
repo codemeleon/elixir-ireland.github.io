@@ -325,6 +325,32 @@ a:hover {
   transform: translateY(-2px);
 }
 
+.card-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.card-buttons .card-link {
+  margin-top: 0;
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+}
+
+.card-link.register-btn {
+  color: #023452;
+  border-color: #023452;
+  background-color: transparent;
+}
+
+.card-link.register-btn:hover {
+  color: #fff;
+  background-color: #023452;
+  border-color: #023452;
+}
+
 .btn {
   display: inline-block;
   padding: 15px 40px;
