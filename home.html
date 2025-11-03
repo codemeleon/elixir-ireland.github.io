@@ -18,7 +18,30 @@
     />
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="js/navigation.js" defer></script>
+    <style>
+      /* Ensure buttons are always styled even if CSS loads slowly */
+      .card-link {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 10px;
+        color: #f47d21 !important;
+        background-color: transparent;
+        border: 2px solid #f47d21;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .card-link:hover {
+        color: #fff !important;
+        background-color: #f47d21;
+        border-color: #f47d21;
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+    </style>
   </head>
 
   <body>
@@ -116,6 +139,8 @@
     <!-- FOOTER -->
     <div id="footer-placeholder"></div>
 
+    <!-- Load all scripts at the end for better performance -->
+    <script src="js/navigation.js"></script>
     <script src="js/ei.js"></script>
     <script src="js/news_items.js"></script>
     <script src="js/events_items.js"></script>

@@ -304,14 +304,25 @@ a:hover {
 }
 
 .card-link {
-  color: #f47920;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  color: #f47d21;
+  background-color: transparent;
+  border: 2px solid #f47d21;
+  border-radius: 4px;
+  text-decoration: none;
   font-weight: 600;
-  margin-top: auto;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .card-link:hover {
-  color: #ffffff !important;
-  text-decoration: none;
+  color: #fff;
+  background-color: #f47d21;
+  border-color: #f47d21;
+  transform: translateY(-2px);
 }
 
 .btn {
