@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Services - ELIXIR Ireland</title>
+    <meta
+      name="description"
+      content="ELIXIR Ireland services for computational biology including compute, tools, interoperability, training and data resources."
+    />
+    <link
+      rel="shortcut icon"
+      href="https://elixir-europe.org/sites/all/themes/elixir/images/favicons/favicon.ico"
+      type="image/vnd.microsoft.icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/navigation.js" defer></script>
+    <style>
+      /* ELIXIR Europe Services Box */
+      .elixir-europe-box {
+        background: linear-gradient(135deg, #023452 0%, #034a73 100%);
+        border-radius: 12px;
+        padding: 40px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 12px rgba(2, 52, 82, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+        display: block;
+        color: white;
+      }
+
+      .elixir-europe-box:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(2, 52, 82, 0.3);
+        color: white;
+      }
+
+      .elixir-europe-box h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .elixir-europe-box p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: white;
+        opacity: 0.95;
+        margin-bottom: 15px;
+      }
+
+      .external-link-arrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #f47920;
+        font-weight: 600;
+        background: white;
+        padding: 8px 16px;
+        border-radius: 6px;
+        transition: gap 0.3s ease;
+      }
+
+      .elixir-europe-box:hover .external-link-arrow {
+        gap: 12px;
+      }
+
+      /* Service Categories - Collapsible */
+      .service-category {
+        margin-bottom: 25px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .category-header {
+        background: linear-gradient(135deg, #023452 0%, #034a73 100%);
+        color: white;
+        padding: 20px 30px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+        user-select: none;
+      }
+
+      .category-header:hover {
+        background: linear-gradient(135deg, #034a73 0%, #023452 100%);
+      }
+
+      .category-header h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .category-icon {
+        font-size: 1.8rem;
+      }
+
+      .expand-icon {
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+        color: #f47920;
+      }
+
+      .expand-icon.expanded {
+        transform: rotate(180deg);
+      }
+
+      .category-content {
+        background: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+        padding: 0 30px;
+      }
+
+      .category-content.expanded {
+        max-height: 1000px;
+        padding: 25px 30px;
+        border-top: 2px solid #f47920;
+      }
+
+      .service-item {
+        background: #f8f9fa;
+        border-left: 4px solid #f47920;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+
+      .service-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .service-item:hover {
+        background: white;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transform: translateX(8px);
+      }
+
+      .service-item h4 {
+        color: #023452;
+        margin: 0 0 10px 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .service-item p {
+        margin: 0 0 10px 0;
+        color: #495057;
+        line-height: 1.6;
+      }
+
+      .service-item-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        color: #f47920;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: gap 0.3s ease;
+      }
+
+      .service-item-link:hover {
+        gap: 10px;
+        text-decoration: underline;
+      }
+
+      .service-item-link svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      @media (max-width: 768px) {
+        .elixir-europe-box {
+          padding: 25px 20px;
+        }
+
+        .elixir-europe-box h3 {
+          font-size: 1.5rem;
+        }
+
+        .category-header {
+          padding: 15px 20px;
+        }
+
+        .category-header h3 {
+          font-size: 1.2rem;
+        }
+
+        .category-icon {
+          font-size: 1.5rem;
+        }
+
+        .category-content {
+          padding: 0 20px;
+        }
+
+        .category-content.expanded {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <div id="header-placeholder"></div>
+
+    <!-- MAIN CONTENT AREA -->
+    <main>
+      <!-- Hero Section -->
+      <section class="page-hero">
+        <div class="page-hero-content">
+          <h1>Our Services</h1>
+          <p class="lead">
+            Comprehensive computational biology services and resources for the Irish research community
+          </p>
+        </div>
+      </section>
+
+      <!-- ELIXIR Europe Services Section -->
+      <section class="content-section">
+        <div class="container">
+          <div class="section-header">
+            <div class="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M2 12h20"></path>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <h2>ELIXIR Europe Services</h2>
+          </div>
+          <div class="section-content">
+            <a href="https://elixir-europe.org/services" target="_blank" class="elixir-europe-box">
+              <h3>🌍 Explore European-wide Services</h3>
+              <p>
+                ELIXIR Europe provides a comprehensive range of services across its network of 23 member states. 
+                Access the full catalogue of European-wide services, tools, databases, and resources available to researchers 
+                throughout the ELIXIR network.
+              </p>
+              <span class="external-link-arrow">
+                Visit ELIXIR Europe Services
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ELIXIR Ireland Services Section -->
+      <section class="content-section">
+        <div class="container">
+          <div class="section-header">
+            <div class="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <h2>ELIXIR Ireland Services</h2>
+          </div>
+          <div class="section-content">
+            <p>
+              Explore our suite of services organized by category. Click on each category to view available services and resources 
+              provided by ELIXIR Ireland to support computational biology research across the country.
+            </p>
+
+            <!-- Compute Services -->
+            <div class="service-category">
+              <div class="category-header" onclick="toggleCategory('compute')">
+                <h3>
+                  <span class="category-icon">💻</span>
+                  Compute Services
+                </h3>
+                <span class="expand-icon" id="compute-icon">▼</span>
+              </div>
+              <div class="category-content" id="compute-content">
+                <div class="service-item">
+                  <h4>High-Performance Computing Infrastructure</h4>
+                  <p>
+                    Access to high-performance computing resources for large-scale bioinformatics analyses, 
+                    genomic data processing, and computational modeling.
+                  </p>
+                  <a href="#" class="service-item-link">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tools Services -->
+            <div class="service-category">
+              <div class="category-header" onclick="toggleCategory('tools')">
+                <h3>
+                  <span class="category-icon">🔧</span>
+                  Tools
+                </h3>
+                <span class="expand-icon" id="tools-icon">▼</span>
+              </div>
+              <div class="category-content" id="tools-content">
+                <div class="service-item">
+                  <h4>Bioinformatics Analysis Tools</h4>
+                  <p>
+                    Specialized software tools for sequence analysis, variant calling, gene expression analysis, 
+                    and data visualization to support your research workflows.
+                  </p>
+                  <a href="#" class="service-item-link">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interoperability Services -->
+            <div class="service-category">
+              <div class="category-header" onclick="toggleCategory('interoperability')">
+                <h3>
+                  <span class="category-icon">🔗</span>
+                  Interoperability
+                </h3>
+                <span class="expand-icon" id="interoperability-icon">▼</span>
+              </div>
+              <div class="category-content" id="interoperability-content">
+                <div class="service-item">
+                  <h4>Data Standards and Integration</h4>
+                  <p>
+                    Standards, protocols, and APIs enabling seamless data exchange and integration across 
+                    bioinformatics platforms and research infrastructures.
+                  </p>
+                  <a href="#" class="service-item-link">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Training Services -->
+            <div class="service-category">
+              <div class="category-header" onclick="toggleCategory('training')">
+                <h3>
+                  <span class="category-icon">📚</span>
+                  Training
+                </h3>
+                <span class="expand-icon" id="training-icon">▼</span>
+              </div>
+              <div class="category-content" id="training-content">
+                <div class="service-item">
+                  <h4>Bioinformatics Training Programmes</h4>
+                  <p>
+                    Comprehensive training courses, workshops, and educational materials covering bioinformatics, 
+                    computational biology, data analysis, and research data management.
+                  </p>
+                  <a href="#" class="service-item-link">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Data Services -->
+            <div class="service-category">
+              <div class="category-header" onclick="toggleCategory('data')">
+                <h3>
+                  <span class="category-icon">📊</span>
+                  Data
+                </h3>
+                <span class="expand-icon" id="data-icon">▼</span>
+              </div>
+              <div class="category-content" id="data-content">
+                <div class="service-item">
+                  <h4>Biological Data Resources</h4>
+                  <p>
+                    Curated biological databases, data repositories, and archival services supporting research 
+                    across genomics, proteomics, metabolomics, and other life science domains.
+                  </p>
+                  <a href="#" class="service-item-link">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Load scripts in correct order -->
+    <script src="js/ei.js"></script>
+    <script src="js/navigation.js"></script>
+    <script>
+      function toggleCategory(categoryId) {
+        const content = document.getElementById(categoryId + '-content');
+        const icon = document.getElementById(categoryId + '-icon');
+        
+        content.classList.toggle('expanded');
+        icon.classList.toggle('expanded');
+      }
+    </script>
+  </body>
+</html>
