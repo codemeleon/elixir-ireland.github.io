@@ -289,13 +289,26 @@
       } else {
         console.warn('initializeEvents function not found');
       }
+    } else if (pathname.includes('services.html')) {
+      if (typeof window.resetServices === 'function') {
+        window.resetServices();
+      }
+      if (typeof window.initializeServices === 'function') {
+        console.log('Calling initializeServices');
+        window.initializeServices();
+      } else {
+        console.warn('initializeServices function not found');
+      }
     } else if (pathname.includes('home.html') || pathname === '/' || pathname.endsWith('/index.html')) {
       // Home page dynamic content
-      if (typeof displayLatestNews === 'function') {
-        displayLatestNews();
+      if (typeof window.resetHome === 'function') {
+        window.resetHome();
       }
-      if (typeof displayUpcomingEvent === 'function') {
-        displayUpcomingEvent();
+      if (typeof window.initializeHome === 'function') {
+        console.log('Calling initializeHome');
+        window.initializeHome();
+      } else {
+        console.warn('initializeHome function not found');
       }
     }
   }

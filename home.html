@@ -168,12 +168,18 @@
     <script src="js/events_items.js"></script>
     <script src="js/navigation.js"></script>
     <script>
-      // Home page dynamic content - simplified
+      // Home page dynamic content with singleton pattern
       (function() {
         'use strict';
         
+        // Prevent multiple initializations
+        let homeInitialized = false;
+
         function displayLatestNews() {
-          if (typeof newsItems === 'undefined' || newsItems.length === 0) return;
+          if (typeof newsItems === 'undefined' || newsItems.length === 0) {
+            console.log("No news items available");
+            return;
+          }
           
           const sortedNews = [...newsItems].sort((a, b) => new Date(b.date) - new Date(a.date));
           const latestNews = sortedNews[0];
@@ -194,7 +200,10 @@
         }
         
         function displayUpcomingEvent() {
-          if (typeof eventsItems === 'undefined' || eventsItems.length === 0) return;
+          if (typeof eventsItems === 'undefined' || eventsItems.length === 0) {
+            console.log("No event items available");
+            return;
+          }
           
           const today = new Date();
           today.setHours(0, 0, 0, 0);
@@ -227,20 +236,38 @@
             `;
           }
         }
-        
-        // Export functions globally so navigation system can use them
-        window.displayLatestNews = displayLatestNews;
-        window.displayUpcomingEvent = displayUpcomingEvent;
+
+        window.initializeHome = function() {
+          // Check if already initialized
+          if (homeInitialized) {
+            console.log("Home already initialized, skipping");
+            return;
+          }
+
+          // Check if we're on the home page
+          const newsEventsSection = document.querySelector('.news-events');
+          if (!newsEventsSection) {
+            console.log("Home page elements not found, skipping initialization");
+            return;
+          }
+
+          homeInitialized = true;
+          console.log("Initializing home page");
+
+          displayLatestNews();
+          displayUpcomingEvent();
+        };
+
+        // Reset function for navigation system
+        window.resetHome = function() {
+          homeInitialized = false;
+        };
         
         // Initialize on DOM ready
         if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', function() {
-            displayLatestNews();
-            displayUpcomingEvent();
-          });
+          document.addEventListener('DOMContentLoaded', window.initializeHome);
         } else {
-          displayLatestNews();
-          displayUpcomingEvent();
+          window.initializeHome();
         }
       })();
     </script>
