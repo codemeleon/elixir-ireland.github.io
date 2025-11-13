@@ -102,25 +102,40 @@
     
     newStyles.forEach(styleLink => {
       const href = styleLink.getAttribute('href');
-      if (href && !document.querySelector(`link[href="${href}"]`)) {
-        const loadPromise = new Promise((resolve, reject) => {
-          const newLink = document.createElement('link');
-          newLink.rel = 'stylesheet';
-          newLink.type = 'text/css';
-          newLink.href = href;
-          newLink.onload = () => {
-            console.log(`✓ Loaded stylesheet: ${href}`);
-            // Force a reflow to ensure CSS is applied
+      if (href) {
+        const existingLink = document.querySelector(`link[href="${href}"]`);
+        if (!existingLink) {
+          const loadPromise = new Promise((resolve, reject) => {
+            const newLink = document.createElement('link');
+            newLink.rel = 'stylesheet';
+            newLink.type = 'text/css';
+            newLink.href = href;
+            newLink.onload = () => {
+              console.log(`✓ Loaded stylesheet: ${href}`);
+              // Force multiple reflows to ensure CSS is applied
+              document.body.offsetHeight;
+              void document.body.offsetWidth;
+              resolve();
+            };
+            newLink.onerror = () => {
+              console.error(`✗ Failed to load stylesheet: ${href}`);
+              reject();
+            };
+            document.head.appendChild(newLink);
+          });
+          loadPromises.push(loadPromise);
+        } else {
+          // CSS already loaded, but force it to reapply by toggling disabled
+          console.log(`♻️ Re-applying existing stylesheet: ${href}`);
+          existingLink.disabled = true;
+          // Use requestAnimationFrame to ensure the disable takes effect
+          requestAnimationFrame(() => {
+            existingLink.disabled = false;
+            // Force reflow after re-enabling
             document.body.offsetHeight;
-            resolve();
-          };
-          newLink.onerror = () => {
-            console.error(`✗ Failed to load stylesheet: ${href}`);
-            reject();
-          };
-          document.head.appendChild(newLink);
-        });
-        loadPromises.push(loadPromise);
+            void document.body.offsetWidth;
+          });
+        }
       }
     });
     
@@ -137,9 +152,12 @@
     });
     
     if (loadPromises.length === 0) {
-      console.log('No new stylesheets to load');
-      // Force a reflow even if no new styles loaded
+      console.log('No new stylesheets to load, forcing reflow');
+      // Force multiple reflows even if no new styles loaded
       document.body.offsetHeight;
+      void document.body.offsetWidth;
+      // Force a style recalculation
+      window.getComputedStyle(document.body).getPropertyValue('color');
     }
     
     return Promise.all(loadPromises);

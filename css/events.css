@@ -121,20 +121,23 @@
 
 .card-link:hover {
     background-color: #f47920;
-    color: #ffffff;
+    color: #ffffff !important;
     text-decoration: none;
 }
 
+/* Register button - must come after base styles for proper cascade */
 .card-link.register-btn {
-    background-color: #f47920;
-    color: #ffffff;
-    border-color: #f47920;
+    background-color: #f47d21 !important;
+    color: #ffffff !important;
+    border-color: #f47d21 !important;
 }
 
 .card-link.register-btn:hover {
-    background-color: #ffffff;
-    color: #f47920;
-    border-color: #f47920;
+    background-color: #ffffff !important;
+    color: #f47d21 !important;
+    border-color: #f47d21 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(244, 125, 33, 0.3);
 }
 
 /* Filter Buttons */

@@ -169,6 +169,18 @@
             eventsContainer.appendChild(eventCard);
         });
         
+        // Force style recalculation on newly added elements
+        requestAnimationFrame(() => {
+            document.body.offsetHeight;
+            void document.body.offsetWidth;
+            // Force computed style check on register buttons
+            const registerButtons = document.querySelectorAll('.register-btn');
+            registerButtons.forEach(btn => {
+                window.getComputedStyle(btn).getPropertyValue('color');
+                window.getComputedStyle(btn).getPropertyValue('background-color');
+            });
+        });
+        
         setupPagination();
     }
 
