@@ -67,10 +67,12 @@
         padding: 8px 16px;
         border-radius: 6px;
         transition: gap 0.3s ease;
+        text-decoration: none;
       }
 
       .elixir-europe-box:hover .external-link-arrow {
         gap: 12px;
+        text-decoration: none;
       }
 
       /* Service Categories - Collapsible */
@@ -108,7 +110,17 @@
       }
 
       .category-icon {
-        font-size: 1.8rem;
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .category-icon svg {
+        width: 28px;
+        height: 28px;
+        stroke: #f47920;
       }
 
       .expand-icon {
@@ -206,7 +218,13 @@
         }
 
         .category-icon {
-          font-size: 1.5rem;
+          width: 28px;
+          height: 28px;
+        }
+
+        .category-icon svg {
+          width: 24px;
+          height: 24px;
         }
 
         .category-content {
@@ -231,7 +249,7 @@
         <div class="page-hero-content">
           <h1>Our Services</h1>
           <p class="lead">
-            Comprehensive computational biology services and resources for the Irish research community
+            ELIXIR Ireland provides services and resources for the Irish life science research community
           </p>
         </div>
       </section>
@@ -251,7 +269,14 @@
           </div>
           <div class="section-content">
             <a href="https://elixir-europe.org/services" target="_blank" class="elixir-europe-box">
-              <h3>🌍 Explore European-wide Services</h3>
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M2 12h20"></path>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                Explore European-wide Services
+              </h3>
               <p>
                 ELIXIR Europe provides a comprehensive range of services across its network of 23 member states. 
                 Access the full catalogue of European-wide services, tools, databases, and resources available to researchers 
@@ -291,7 +316,13 @@
             <div class="service-category">
               <div class="category-header" onclick="toggleCategory('compute')">
                 <h3>
-                  <span class="category-icon">💻</span>
+                  <span class="category-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                      <line x1="8" y1="21" x2="16" y2="21"></line>
+                      <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                  </span>
                   Compute Services
                 </h3>
                 <span class="expand-icon" id="compute-icon">▼</span>
@@ -318,7 +349,11 @@
             <div class="service-category">
               <div class="category-header" onclick="toggleCategory('tools')">
                 <h3>
-                  <span class="category-icon">🔧</span>
+                  <span class="category-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                    </svg>
+                  </span>
                   Tools
                 </h3>
                 <span class="expand-icon" id="tools-icon">▼</span>
@@ -345,7 +380,12 @@
             <div class="service-category">
               <div class="category-header" onclick="toggleCategory('interoperability')">
                 <h3>
-                  <span class="category-icon">🔗</span>
+                  <span class="category-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                  </span>
                   Interoperability
                 </h3>
                 <span class="expand-icon" id="interoperability-icon">▼</span>
@@ -372,7 +412,12 @@
             <div class="service-category">
               <div class="category-header" onclick="toggleCategory('training')">
                 <h3>
-                  <span class="category-icon">📚</span>
+                  <span class="category-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                  </span>
                   Training
                 </h3>
                 <span class="expand-icon" id="training-icon">▼</span>
@@ -399,7 +444,13 @@
             <div class="service-category">
               <div class="category-header" onclick="toggleCategory('data')">
                 <h3>
-                  <span class="category-icon">📊</span>
+                  <span class="category-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                    </svg>
+                  </span>
                   Data
                 </h3>
                 <span class="expand-icon" id="data-icon">▼</span>
