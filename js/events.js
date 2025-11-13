@@ -1,13 +1,40 @@
-// Events page logic with filtering for upcoming vs past events
-window.initializeEvents = function() {
+// Events page logic with singleton pattern
+(function() {
+  'use strict';
+
+  // Prevent multiple initializations
+  let eventsInitialized = false;
+
+  window.initializeEvents = function() {
+    // Check if already initialized
+    if (eventsInitialized) {
+      console.log("Events already initialized, skipping");
+      return;
+    }
+
     // Check if we are on the events page
     const eventsContainer = document.getElementById('events-container');
     if (!eventsContainer) {
-        return; // Exit if the container is not found
+      console.log("Events container not found, skipping initialization");
+      return;
     }
+    
+    // Check if eventsItems data is available
+    if (typeof eventsItems === 'undefined') {
+      console.error("eventsItems data not loaded yet");
+      return;
+    }
+
+    eventsInitialized = true;
+    console.log("Initializing events with items:", eventsItems.length);
 
     const paginationContainer = document.getElementById('events-pagination-container');
     const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    if (!filterButtons || filterButtons.length === 0) {
+      console.warn("Filter buttons not found");
+    }
+    
     const itemsPerPage = 6;
     let currentPage = 1;
     let currentFilter = 'all';
@@ -21,11 +48,6 @@ window.initializeEvents = function() {
         const upcoming = [];
         const past = [];
 
-        if (typeof eventsItems === 'undefined') {
-            console.warn('eventsItems data is not loaded.');
-            return { upcoming: [], past: [] };
-        }
-
         eventsItems.forEach(event => {
             const eventDate = new Date(event.date);
             eventDate.setHours(0, 0, 0, 0);
@@ -37,10 +59,7 @@ window.initializeEvents = function() {
             }
         });
 
-        // Sort upcoming events: soonest first
         upcoming.sort((a, b) => new Date(a.date) - new Date(b.date));
-        
-        // Sort past events: most recent first
         past.sort((a, b) => new Date(b.date) - new Date(a.date));
 
         return { upcoming, past };
@@ -48,7 +67,6 @@ window.initializeEvents = function() {
 
     const { upcoming, past } = categorizeEvents();
 
-    // Filter events based on selected filter
     function filterEvents(filter) {
         currentFilter = filter;
         
@@ -63,7 +81,6 @@ window.initializeEvents = function() {
         displayEvents(1);
     }
 
-    // Display events with pagination
     function displayEvents(page) {
         eventsContainer.innerHTML = '';
         page = page || 1;
@@ -79,16 +96,14 @@ window.initializeEvents = function() {
         const endIndex = startIndex + itemsPerPage;
         const paginatedItems = filteredEvents.slice(startIndex, endIndex);
 
-        for (const item of paginatedItems) {
+        paginatedItems.forEach(item => {
             const eventCard = document.createElement('div');
             eventCard.className = 'card';
 
-            // Add event status badge
             const eventDate = new Date(item.date);
             eventDate.setHours(0, 0, 0, 0);
             const isUpcoming = eventDate >= today;
 
-            // Add image if available
             if (item.image) {
                 const cardImage = document.createElement('img');
                 cardImage.className = 'card-image';
@@ -100,7 +115,6 @@ window.initializeEvents = function() {
             const cardContent = document.createElement('div');
             cardContent.className = 'card-content';
 
-            // Add status badge
             const statusBadge = document.createElement('span');
             statusBadge.className = `event-status-badge ${isUpcoming ? 'upcoming' : 'past'}`;
             statusBadge.textContent = isUpcoming ? 'Upcoming' : 'Past Event';
@@ -122,7 +136,6 @@ window.initializeEvents = function() {
             summary.className = 'card-text';
             summary.textContent = item.summary;
 
-            // Add buttons container
             const buttonsContainer = document.createElement('div');
             buttonsContainer.className = 'card-buttons';
 
@@ -132,7 +145,6 @@ window.initializeEvents = function() {
             readMore.textContent = 'Learn More →';
             buttonsContainer.appendChild(readMore);
 
-            // Add registration button for upcoming events
             if (isUpcoming && item.registrationLink) {
                 const registerBtn = document.createElement('a');
                 registerBtn.href = item.registrationLink;
@@ -148,7 +160,8 @@ window.initializeEvents = function() {
             cardContent.appendChild(buttonsContainer);
             eventCard.appendChild(cardContent);
             eventsContainer.appendChild(eventCard);
-        }
+        });
+        
         setupPagination();
     }
 
@@ -158,7 +171,6 @@ window.initializeEvents = function() {
 
         if (pageCount <= 1) return;
 
-        // Previous button
         const prevButton = document.createElement('button');
         prevButton.textContent = 'Prev';
         prevButton.disabled = currentPage === 1;
@@ -170,7 +182,6 @@ window.initializeEvents = function() {
         });
         paginationContainer.appendChild(prevButton);
 
-        // Page numbers
         for (let i = 1; i <= pageCount; i++) {
             const pageButton = document.createElement('button');
             pageButton.textContent = i;
@@ -184,7 +195,6 @@ window.initializeEvents = function() {
             paginationContainer.appendChild(pageButton);
         }
 
-        // Next button
         const nextButton = document.createElement('button');
         nextButton.textContent = 'Next';
         nextButton.disabled = currentPage === pageCount;
@@ -197,19 +207,29 @@ window.initializeEvents = function() {
         paginationContainer.appendChild(nextButton);
     }
 
-    // Set up filter buttons
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            const filter = button.getAttribute('data-filter');
-            filterEvents(filter);
-        });
-    });
+    if (filterButtons && filterButtons.length > 0) {
+      filterButtons.forEach(button => {
+          button.addEventListener('click', () => {
+              filterButtons.forEach(btn => btn.classList.remove('active'));
+              button.classList.add('active');
+              const filter = button.getAttribute('data-filter');
+              filterEvents(filter);
+          });
+      });
+    }
 
-    // Initial display - show all events
     filterEvents('all');
-};
+  };
 
-// Initialize on DOMContentLoaded (for direct page load)
-document.addEventListener('DOMContentLoaded', window.initializeEvents);
+  // Reset function for navigation system
+  window.resetEvents = function() {
+    eventsInitialized = false;
+  };
+
+  // Auto-initialize on DOM ready (for direct page load)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', window.initializeEvents);
+  } else {
+    window.initializeEvents();
+  }
+})();
