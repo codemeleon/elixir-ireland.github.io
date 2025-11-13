@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   ELIXIR Ireland is the Irish node of the international
   organisation ELIXIR, centred in Europe, which promotes the
   sharing of resources and expertise in computational biology.
-baseurl: "/elixir-ireland.github.io" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://elixir-ireland.ie" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: elixir-ireland
 github_username:  codemeleon
@@ -48,15 +48,19 @@ include:
 #
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - "*.bak"
+  - NAVIGATION_FIX.md
+  - NAVBAR_RESPONSIVE_IMPLEMENTATION.md
+  - README.md

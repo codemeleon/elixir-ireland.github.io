@@ -80,11 +80,58 @@ a:hover {
   min-height: 90px;
 }
 
+/* Loading indicator for page transitions */
+body.loading {
+  position: relative;
+}
+
+body.loading::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #f47920, #ff9f50);
+  z-index: 9999;
+  animation: loading-bar 1s ease-in-out infinite;
+}
+
+@keyframes loading-bar {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Smooth content transitions */
+main {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Header */
 .main-header {
   background-color: #023452;
   padding: 20px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1000;
 }
 
 .header-container {
@@ -93,18 +140,15 @@ a:hover {
   padding: 0 2em;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   position: relative;
-  gap: 3em;
 }
 
 .header-logo {
-  position: absolute;
-  left: 2em;
   flex-shrink: 0;
   width: auto;
-  max-width: none;
-  z-index: 1;
+  max-width: 250px;
+  z-index: 1001;
 }
 
 .header-logo a {
@@ -114,19 +158,64 @@ a:hover {
 }
 
 .header-logo img {
-  max-height:180px;
+  max-height: 180px;
   width: auto;
   display: block;
   pointer-events: none;
+  transition: max-height 0.3s ease;
+}
+
+/* Burger Menu Button - Hidden by default */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2.5em;
+  height: 2.5em;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5em;
+  z-index: 1001;
+  position: relative;
+}
+
+.burger-menu:focus {
+  outline: 2px solid #f47920;
+  outline-offset: 2px;
+}
+
+.burger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.burger-menu.active .burger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burger-menu.active .burger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.burger-menu.active .burger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 .header-nav {
   display: flex;
   justify-content: center;
-  z-index: 10;
+  flex: 1;
+  z-index: 1000;
   position: relative;
 }
 
+.header-nav .nav-list,
 .header-nav ul {
   margin: 0;
   padding: 0;
@@ -141,7 +230,6 @@ a:hover {
   margin: 0;
   padding: 0;
   position: relative;
-  z-index: 10;
 }
 
 .header-nav ul li a {
@@ -155,7 +243,6 @@ a:hover {
   display: block;
   white-space: nowrap;
   position: relative;
-  z-index: 10;
 }
 
 .header-nav ul li a:hover,
@@ -179,6 +266,159 @@ a:hover {
   text-decoration: none;
   color: #ffffff;
 }
+
+/* Responsive breakpoints for navbar */
+
+/* Tablet landscape and smaller desktops (1200px and below) */
+@media (max-width: 1200px) {
+  .header-container {
+    padding: 0 1.5em;
+  }
+  
+  .header-logo img {
+    max-height: 140px;
+  }
+  
+  .header-nav ul {
+    gap: 0.4em;
+  }
+  
+  .header-nav ul li a {
+    font-size: 1.3em;
+    padding: 12px 20px;
+  }
+}
+
+/* Tablet (1024px and below) - Show burger menu */
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 0 1em;
+  }
+  
+  .header-logo {
+    max-width: 200px;
+  }
+  
+  .header-logo img {
+    max-height: 120px;
+  }
+  
+  .burger-menu {
+    display: flex;
+  }
+  
+  .header-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 300px;
+    max-width: 80%;
+    background-color: #023452;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 80px;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+  }
+  
+  .header-nav.active {
+    right: 0;
+  }
+  
+  .header-nav .nav-list,
+  .header-nav ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    align-items: stretch;
+  }
+  
+  .header-nav ul li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .header-nav ul li a {
+    padding: 18px 30px;
+    font-size: 1.4em;
+    text-align: left;
+    white-space: normal;
+  }
+  
+  .header-nav ul li a:hover {
+    transform: none;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 15px 0;
+  }
+  
+  .header-container {
+    padding: 0 1em;
+  }
+  
+  .header-logo {
+    max-width: 180px;
+  }
+  
+  .header-logo img {
+    max-height: 100px;
+  }
+  
+  .burger-menu {
+    width: 2.2em;
+    height: 2.2em;
+  }
+  
+  .header-nav {
+    width: 280px;
+  }
+  
+  .header-nav ul li a {
+    font-size: 1.3em;
+    padding: 16px 25px;
+  }
+}
+
+/* Small mobile (480px and below) */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 0.8em;
+  }
+  
+  .header-logo {
+    max-width: 150px;
+  }
+  
+  .header-logo img {
+    max-height: 80px;
+  }
+  
+  .burger-menu {
+    width: 2em;
+    height: 2em;
+  }
+  
+  .burger-line {
+    height: 2.5px;
+  }
+  
+  .header-nav {
+    width: 260px;
+  }
+  
+  .header-nav ul li a {
+    font-size: 1.2em;
+    padding: 14px 20px;
+  }
+}
+
 
 /* Hero Section */
 .hero {
@@ -304,14 +544,51 @@ a:hover {
 }
 
 .card-link {
-  color: #f47920;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  color: #f47d21;
+  background-color: transparent;
+  border: 2px solid #f47d21;
+  border-radius: 4px;
+  text-decoration: none;
   font-weight: 600;
-  margin-top: auto;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .card-link:hover {
-  color: #ffffff !important;
-  text-decoration: none;
+  color: #fff;
+  background-color: #f47d21;
+  border-color: #f47d21;
+  transform: translateY(-2px);
+}
+
+.card-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.card-buttons .card-link {
+  margin-top: 0;
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+}
+
+.card-link.register-btn {
+  color: #023452;
+  border-color: #023452;
+  background-color: transparent;
+}
+
+.card-link.register-btn:hover {
+  color: #fff;
+  background-color: #023452;
+  border-color: #023452;
 }
 
 .btn {
@@ -1137,6 +1414,11 @@ section {
   object-fit: cover;
 }
 
+/* Adjust Pilib's image position to show more of the top of his head */
+.leader-avatar img[alt="Pilib Ó Broin"] {
+  object-position: center 20%;
+}
+
 .leader-card h3 {
   font-size: 1rem;
   color: #f47d21;
@@ -1326,6 +1608,11 @@ section {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+/* Ensure board icon images display properly */
+.board-icon img {
+  transform: scale(1.0);
 }
 
 .board-member:hover .board-icon {

@@ -1,23 +1,39 @@
-// This file contains shared logic for the News page.
+// News page logic with singleton pattern
+(function() {
+  'use strict';
 
-// Make the initialization function globally accessible so navigation.js can call it
-window.initializeNews = function() {
+  // Prevent multiple initializations
+  let newsInitialized = false;
+
+  window.initializeNews = function() {
+    // Check if already initialized
+    if (newsInitialized) {
+      console.log("News already initialized, skipping");
+      return;
+    }
+
     // Check if we are on a page that needs this functionality
     const newsContainer = document.getElementById('news-container');
     if (!newsContainer) {
-        return; // Exit if the container is not found
+      console.log("News container not found, skipping initialization");
+      return;
     }
+
+    // Check if newsItems data is available
+    if (typeof newsItems === 'undefined') {
+      console.error("newsItems data not loaded yet");
+      return;
+    }
+
+    newsInitialized = true;
+    console.log("Initializing news with items:", newsItems.length);
 
     const paginationContainer = document.getElementById('pagination-container');
     const itemsPerPage = 6;
     let currentPage = 1;
 
-    // Sort news items by date, newest first, if newsItems exists
-    const sortedNewsItems = typeof newsItems !== 'undefined' 
-        ? newsItems.sort((a, b) => new Date(b.date) - new Date(a.date))
-        : [];
-        
-    console.log("News initialized with items:", sortedNewsItems.length);
+    // Sort news items by date, newest first
+    const sortedNewsItems = newsItems.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     function displayNews(page) {
         newsContainer.innerHTML = '';
@@ -34,16 +50,16 @@ window.initializeNews = function() {
         const endIndex = startIndex + itemsPerPage;
         const paginatedItems = sortedNewsItems.slice(startIndex, endIndex);
 
-        for (const item of paginatedItems) {
+        paginatedItems.forEach(item => {
             const newsCard = document.createElement('div');
             newsCard.className = 'card';
 
-            // Add image if available
             if (item.image) {
                 const cardImage = document.createElement('img');
                 cardImage.className = 'card-image';
                 cardImage.src = item.image;
                 cardImage.alt = item.title;
+                cardImage.loading = 'lazy';
                 newsCard.appendChild(cardImage);
             }
 
@@ -56,7 +72,11 @@ window.initializeNews = function() {
 
             const date = document.createElement('div');
             date.className = 'card-date';
-            date.textContent = new Date(item.date).toLocaleDateString('en-IE', { year: 'numeric', month: 'long', day: 'numeric' });
+            date.textContent = new Date(item.date).toLocaleDateString('en-IE', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
 
             const summary = document.createElement('p');
             summary.className = 'card-text';
@@ -73,7 +93,8 @@ window.initializeNews = function() {
             cardContent.appendChild(readMore);
             newsCard.appendChild(cardContent);
             newsContainer.appendChild(newsCard);
-        }
+        });
+        
         setupPagination();
     }
 
@@ -83,7 +104,6 @@ window.initializeNews = function() {
 
         if (pageCount <= 1) return;
 
-        // Previous button
         const prevButton = document.createElement('button');
         prevButton.textContent = 'Prev';
         prevButton.disabled = currentPage === 1;
@@ -95,7 +115,6 @@ window.initializeNews = function() {
         });
         paginationContainer.appendChild(prevButton);
 
-        // Page numbers
         for (let i = 1; i <= pageCount; i++) {
             const pageButton = document.createElement('button');
             pageButton.textContent = i;
@@ -109,7 +128,6 @@ window.initializeNews = function() {
             paginationContainer.appendChild(pageButton);
         }
 
-        // Next button
         const nextButton = document.createElement('button');
         nextButton.textContent = 'Next';
         nextButton.disabled = currentPage === pageCount;
@@ -122,9 +140,19 @@ window.initializeNews = function() {
         paginationContainer.appendChild(nextButton);
     }
 
-    // Initial display
     displayNews(1);
-};
+  };
 
-// Initialize on DOMContentLoaded (for direct page load)
-document.addEventListener('DOMContentLoaded', window.initializeNews);
+  // Reset function for navigation system
+  window.resetNews = function() {
+    newsInitialized = false;
+  };
+
+  // Auto-initialize on DOM ready (for direct page load)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', window.initializeNews);
+  } else {
+    // DOM already loaded
+    window.initializeNews();
+  }
+})();
