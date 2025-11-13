@@ -262,6 +262,8 @@
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           initializePage(cacheKey);
+          // Notify that navigation is complete
+          window.dispatchEvent(new Event('navigationComplete'));
         });
       });
       return;
@@ -295,6 +297,8 @@
               requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
                   initializePage(cacheKey);
+                  // Notify that navigation is complete
+                  window.dispatchEvent(new Event('navigationComplete'));
                 });
               });
             } else {
@@ -359,6 +363,9 @@
         clearInterval(checkInterval);
         headerFooterLoaded = true;
         initializeNavigation();
+        
+        // Dispatch event to notify burger menu can initialize
+        window.dispatchEvent(new Event('navigationComplete'));
         
         updateActiveNav(window.location.pathname);
 
