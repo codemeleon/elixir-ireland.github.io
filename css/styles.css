@@ -1414,6 +1414,11 @@ section {
   object-fit: cover;
 }
 
+/* Adjust Pilib's image position to show more of the top of his head */
+.leader-avatar img[alt="Pilib Ó Broin"] {
+  object-position: center 20%;
+}
+
 .leader-card h3 {
   font-size: 1rem;
   color: #f47d21;
@@ -1603,6 +1608,11 @@ section {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+/* Ensure board icon images display properly */
+.board-icon img {
+  transform: scale(1.0);
 }
 
 .board-member:hover .board-icon {

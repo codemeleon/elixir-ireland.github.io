@@ -12,8 +12,22 @@
   let currentAbortController = null;
   let currentPath = null;
 
-  // Track which scripts are loaded
+  // Track which scripts and inline styles are loaded
   const loadedScripts = new Set();
+  const inlineStyleIds = new Set();
+
+  /**
+   * Clean up old inline styles
+   */
+  function cleanupInlineStyles() {
+    inlineStyleIds.forEach(styleId => {
+      const styleElement = document.getElementById(styleId);
+      if (styleElement) {
+        styleElement.remove();
+      }
+    });
+    inlineStyleIds.clear();
+  }
 
   /**
    * Extract main content from HTML string
@@ -96,6 +110,8 @@
           newLink.href = href;
           newLink.onload = () => {
             console.log(`✓ Loaded stylesheet: ${href}`);
+            // Force a reflow to ensure CSS is applied
+            document.body.offsetHeight;
             resolve();
           };
           newLink.onerror = () => {
@@ -108,8 +124,22 @@
       }
     });
     
+    // Also handle inline styles from the page
+    const inlineStyles = doc.querySelectorAll('head style');
+    inlineStyles.forEach(styleTag => {
+      const styleId = `inline-style-${Math.random().toString(36).substr(2, 9)}`;
+      const newStyle = document.createElement('style');
+      newStyle.id = styleId;
+      newStyle.textContent = styleTag.textContent;
+      document.head.appendChild(newStyle);
+      inlineStyleIds.add(styleId);
+      console.log(`✓ Added inline stylesheet: ${styleId}`);
+    });
+    
     if (loadPromises.length === 0) {
       console.log('No new stylesheets to load');
+      // Force a reflow even if no new styles loaded
+      document.body.offsetHeight;
     }
     
     return Promise.all(loadPromises);
@@ -184,6 +214,18 @@
       
       nodesToRemove.forEach(node => node.remove());
       footerPlaceholder.insertAdjacentHTML('beforebegin', content);
+      
+      // Multiple forced reflows to ensure DOM updates and CSS are applied
+      document.body.offsetHeight;
+      void document.body.offsetWidth;
+      
+      // Force image decode for better rendering
+      const images = document.querySelectorAll('main img');
+      images.forEach(img => {
+        if (img.complete && img.decode) {
+          img.decode().catch(() => {});
+        }
+      });
     }
   }
 
@@ -239,6 +281,9 @@
     }
     currentPath = fullPath;
 
+    // Clean up old inline styles before loading new page
+    cleanupInlineStyles();
+
     // Increment token and abort any in-flight request
     const myToken = ++currentNavToken;
     if (currentAbortController) {
@@ -258,9 +303,14 @@
       replaceMainContent(contentCache[cacheKey]);
       window.scrollTo(0, 0);
       
-      // Even when serving from cache, wait for DOM to settle before initializing
+      // Force reflow and wait for images to load
+      document.body.offsetHeight;
+      
+      // Even when serving from cache, wait for DOM to settle and CSS to apply
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
+          // Additional reflow to ensure CSS is applied
+          document.body.offsetHeight;
           initializePage(cacheKey);
           // Notify that navigation is complete
           window.dispatchEvent(new Event('navigationComplete'));
@@ -284,7 +334,11 @@
 
         // Load styles first, then scripts, then initialize
         return loadPageStyles(html)
-          .then(() => loadPageScripts(html))
+          .then(() => {
+            // Force reflow after CSS loads
+            document.body.offsetHeight;
+            return loadPageScripts(html);
+          })
           .then(() => {
             const content = extractContent(html);
             if (content) {
@@ -293,9 +347,11 @@
               updatePageTitle(html);
               window.scrollTo(0, 0);
               
-              // Wait a tick for DOM to settle, then initialize
+              // Wait for CSS to be fully applied and DOM to settle
               requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
+                  // Final reflow to ensure everything is rendered
+                  document.body.offsetHeight;
                   initializePage(cacheKey);
                   // Notify that navigation is complete
                   window.dispatchEvent(new Event('navigationComplete'));
