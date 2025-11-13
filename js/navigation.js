@@ -109,7 +109,8 @@
             const newLink = document.createElement('link');
             newLink.rel = 'stylesheet';
             newLink.type = 'text/css';
-            newLink.href = href;
+            // Add cache-busting timestamp to force fresh load
+            newLink.href = href + (href.includes('?') ? '&' : '?') + '_=' + Date.now();
             newLink.onload = () => {
               console.log(`✓ Loaded stylesheet: ${href}`);
               // Force multiple reflows to ensure CSS is applied
@@ -125,16 +126,30 @@
           });
           loadPromises.push(loadPromise);
         } else {
-          // CSS already loaded, but force it to reapply by toggling disabled
-          console.log(`♻️ Re-applying existing stylesheet: ${href}`);
-          existingLink.disabled = true;
-          // Use requestAnimationFrame to ensure the disable takes effect
-          requestAnimationFrame(() => {
-            existingLink.disabled = false;
-            // Force reflow after re-enabling
-            document.body.offsetHeight;
-            void document.body.offsetWidth;
+          // CSS already loaded, force complete reload by removing and re-adding
+          console.log(`♻️ Reloading stylesheet: ${href}`);
+          const parent = existingLink.parentNode;
+          parent.removeChild(existingLink);
+          
+          const reloadPromise = new Promise((resolve) => {
+            requestAnimationFrame(() => {
+              const newLink = document.createElement('link');
+              newLink.rel = 'stylesheet';
+              newLink.type = 'text/css';
+              newLink.href = href + (href.includes('?') ? '&' : '?') + '_=' + Date.now();
+              newLink.onload = () => {
+                console.log(`✓ Reloaded stylesheet: ${href}`);
+                // Force reflow after re-enabling
+                document.body.offsetHeight;
+                void document.body.offsetWidth;
+                // Force style recalculation
+                window.getComputedStyle(document.body).getPropertyValue('color');
+                resolve();
+              };
+              parent.appendChild(newLink);
+            });
           });
+          loadPromises.push(reloadPromise);
         }
       }
     });

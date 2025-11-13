@@ -59,13 +59,7 @@
                 cardImage.className = 'card-image';
                 cardImage.src = item.image;
                 cardImage.alt = item.title;
-                // Ensure proper loading and prevent layout shift
                 cardImage.loading = 'lazy';
-                cardImage.style.opacity = '0';
-                cardImage.onload = function() {
-                    this.style.opacity = '1';
-                    this.style.transition = 'opacity 0.3s ease';
-                };
                 newsCard.appendChild(cardImage);
             }
 
