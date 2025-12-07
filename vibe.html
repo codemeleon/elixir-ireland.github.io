@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>VIBE – The Irish Bioinformatics Network</title>
+    <meta
+      name="description"
+      content="VIBE is a grassroots, bottom-up community network representing bioinformatics researchers, data scientists, and computational biologists across Ireland."
+    />
+    <link
+      rel="shortcut icon"
+      href="https://elixir-europe.org/sites/all/themes/elixir/images/favicons/favicon.ico"
+      type="image/vnd.microsoft.icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/services.css" />
+    <link rel="stylesheet" type="text/css" href="css/events.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/navigation.js" defer></script>
+    <style>
+        .vibe-logo-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .vibe-logo-container img {
+            max-width: 250px;
+            height: auto;
+        }
+        .strategic-context {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+        .strategic-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .strategic-graphic {
+            flex: 1;
+            min-width: 300px;
+            background: #f0f4f8;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e1e8ed;
+        }
+        .strategic-graphic h3 {
+            color: #023452;
+            margin-top: 0;
+        }
+        .pi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .pi-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 4px solid #f47920;
+            display: flex;
+            flex-direction: column;
+        }
+        .pi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+        .pi-card h3 {
+            margin-top: 0;
+            color: #023452;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .pi-card .institution {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.8rem;
+        }
+        .pi-card .focus {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: #444;
+            flex-grow: 1;
+        }
+        .pi-links {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+        }
+        .pi-links a {
+            color: #023452;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        .pi-links a:hover {
+            color: #f47920;
+        }
+        .join-directory {
+            background: linear-gradient(135deg, #023452 0%, #034a73 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-top: 4rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(2, 52, 82, 0.2);
+        }
+        .join-directory h3 {
+            color: white;
+            margin-top: 0;
+        }
+        .join-directory a {
+            color: #f47920;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .join-directory a:hover {
+            text-decoration: underline;
+            color: #ff9e5e;
+        }
+        .event-highlight {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            border-left: 5px solid #f47920;
+        }
+        .cta-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid #e9ecef;
+            text-align: center;
+        }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <div id="header-placeholder"></div>
+
+    <!-- MAIN CONTENT AREA -->
+    <main>
+      <!-- Hero Section -->
+      <section class="page-hero" id="top">
+        <div class="page-hero-content">
+          <h1>VIBE – The Irish Bioinformatics Network</h1>
+        </div>
+      </section>
+
+      <!-- About VIBE -->
+      <section class="content-section">
+        <div class="container">
+            <div class="vibe-logo-container">
+                <!-- Placeholder for VIBE Logo -->
+                <div style="background: #eee; width: 200px; height: 200px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #888; font-weight: bold;">VIBE Logo</div>
+            </div>
+            
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+                <h2 style="color: #023452; margin-bottom: 1rem;">The Virtual Institute of Bioinformatics and Evolution</h2>
+                <h3 style="color: #666; font-weight: 400; margin-top: 0;">Uniting the bioinformatics and computational biology community across the island of Ireland.</h3>
+            </div>
+
+            <div class="row">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <p>VIBE is a grassroots, bottom-up community network representing bioinformatics researchers, data scientists, and computational biologists across Ireland. Since its inception, VIBE has served as the primary forum for networking, collaboration, and the exchange of ideas in the Irish life sciences data sector.</p>
+                    
+                    <div style="background: #f0f7fb; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; border-left: 4px solid #023452;">
+                        <h4 style="margin-top: 0; color: #023452;">Governance</h4>
+                        <p>We operate under a shared set of principles to ensure transparency and community-led decision-making. The VIBE Constitution outlines our purpose, membership structure, and operating procedures.</p>
+                        <a href="https://zenodo.org/records/17850120" target="_blank" class="btn btn-primary" style="display: inline-block; margin-top: 0.5rem;">View the VIBE Constitution on Zenodo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Strategic Context -->
+      <section class="content-section" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <div class="icon-circle">
+                  <i class="fas fa-network-wired"></i>
+                </div>
+                <h2>Strategic Context: VIBE & ELIXIR</h2>
+            </div>
+            
+            <div class="strategic-context">
+                <div class="strategic-text">
+                    <h3>The All-Island Connection</h3>
+                    <p>VIBE operates as an All-Island network, bridging the gap between researchers in the Republic of Ireland and Northern Ireland. This unique position allows us to foster deep collaboration between:</p>
+                    
+                    <ul style="margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;"><strong>ELIXIR Ireland:</strong> Supporting the infrastructure, data stewardship, and training needs of the community.</li>
+                        <li><strong>ELIXIR UK:</strong> Connecting our Northern Ireland partners to the broader UK bioinformatics landscape.</li>
+                    </ul>
+                    
+                    <h3>Why this matters</h3>
+                    <p>While ELIXIR provides the European-scale infrastructure and funding mechanisms, VIBE provides the community. We are the people, the labs, and the students driving the research. VIBE acts as the community voice that informs ELIXIR Ireland's strategic direction.</p>
+                </div>
+                <div class="strategic-graphic">
+                    <h3>VIBE & ELIXIR</h3>
+                    <div style="font-size: 4rem; color: #023452; margin: 1rem 0;">
+                        <i class="fas fa-users"></i> <i class="fas fa-exchange-alt"></i> <i class="fas fa-server"></i>
+                    </div>
+                    <p><strong>Community + Infrastructure</strong></p>
+                    <p>Connecting researchers across the island of Ireland with European resources.</p>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Annual Events -->
+      <section class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="icon-circle">
+                  <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h2>Annual Events</h2>
+            </div>
+
+            <!-- Upcoming Event -->
+            <div class="event-highlight">
+                <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+                    <div style="flex: 2;">
+                        <span class="event-status-badge upcoming" style="margin-bottom: 1rem; display: inline-block;">Upcoming Event</span>
+                        <h2 style="color: #023452; margin-top: 0;">VIBE 2025</h2>
+                        <p><strong><i class="far fa-calendar"></i> Date:</strong> December 8, 2025</p>
+                        <p><strong><i class="fas fa-map-marker-alt"></i> Location:</strong> Trinity College Dublin, Dublin, Ireland</p>
+                        <p>The 2025 edition brings together the brightest minds in Irish bioinformatics for a day of presentations, poster sessions, and networking.</p>
+                        <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Event & Register</a>
+                    </div>
+                    <div style="flex: 1; text-align: center;">
+                        <img src="images/vibe25.png" alt="VIBE 2025" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Archive -->
+            <h3>Event Archive</h3>
+            <p>Explore the history of the VIBE community meetings. Click on a year to see details.</p>
+
+            <div id="vibe-events-archive">
+                <!-- VIBE 2024 -->
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleVibeYear('vibe2024')">
+                        <h3>VIBE 2024 (Joint VIBE-ICBG Meeting)</h3>
+                        <div class="expand-icon" id="vibe2024-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="category-content" id="vibe2024-content">
+                        <p><strong>Date:</strong> December 5–6, 2024</p>
+                        <p><strong>Location:</strong> University of Galway</p>
+                        <p><strong>Host:</strong> Dr. Pilib Ó Broin (University of Galway)</p>
+                        <p><strong>Keynotes:</strong> Karen Miga (UCSC), Davide Cirillo (Barcelona Supercomputing Centre), Elizabeth Bik.</p>
+                    </div>
+                </div>
+
+                <!-- VIBE 2023 -->
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleVibeYear('vibe2023')">
+                        <h3>VIBE 2023</h3>
+                        <div class="expand-icon" id="vibe2023-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="category-content" id="vibe2023-content">
+                        <p><strong>Date:</strong> May 26, 2023</p>
+                        <p><strong>Location:</strong> Riddel Hall, Queen's University Belfast</p>
+                        <p><strong>Host:</strong> Dr. Ian Overton (Queen's University Belfast)</p>
+                        <p><strong>Keynotes:</strong> Prof. Aedín Culhane (University of Limerick) & Dr. Evangelia Petsalaki (EMBL-EBI).</p>
+                    </div>
+                </div>
+
+                <!-- VIBE 2022 -->
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleVibeYear('vibe2022')">
+                        <h3>VIBE 2022</h3>
+                        <div class="expand-icon" id="vibe2022-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="category-content" id="vibe2022-content">
+                        <p><strong>Date:</strong> June 24, 2022</p>
+                        <p><strong>Location:</strong> University of Limerick</p>
+                        <p><strong>Hosts:</strong> Dr. Aedin Culhane & Dr. Virag Sharma</p>
+                        <p><strong>Keynote:</strong> Prof. Des Higgins (UCD) - "37 years of Multiple Sequence Alignments"</p>
+                    </div>
+                </div>
+
+                <!-- VIBE 2019 -->
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleVibeYear('vibe2019')">
+                        <h3>VIBE 2019</h3>
+                        <div class="expand-icon" id="vibe2019-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="category-content" id="vibe2019-content">
+                        <p><strong>Date:</strong> March 22, 2019</p>
+                        <p><strong>Location:</strong> UCD Conway Institute, Dublin</p>
+                        <p><strong>Host:</strong> Prof. Des Higgins</p>
+                        <p><strong>Keynotes:</strong> Prof. Lars Jermiin (UCD) & Dr. Chris Creevey (QUB).</p>
+                    </div>
+                </div>
+
+                <!-- VIBE 2014 -->
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleVibeYear('vibe2014')">
+                        <h3>VIBE 2014</h3>
+                        <div class="expand-icon" id="vibe2014-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="category-content" id="vibe2014-content">
+                        <p><strong>Date:</strong> May 9, 2014</p>
+                        <p><strong>Location:</strong> Dargan Centre, Institute of Technology Carlow</p>
+                        <p><strong>Host:</strong> Dr. Andrew Lloyd</p>
+                        <p><strong>Keynote:</strong> Dr. Dan Milborne (Teagasc) - "A whistle stop tour of the potato genome sequence".</p>
+                    </div>
+                </div>
+
+                <!-- VIBE 2013 -->
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleVibeYear('vibe2013')">
+                        <h3>VIBE 2013</h3>
+                        <div class="expand-icon" id="vibe2013-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="category-content" id="vibe2013-content">
+                        <p><strong>Date:</strong> November 15, 2013</p>
+                        <p><strong>Location:</strong> NUI Galway (Arts Millennium Building)</p>
+                        <p><strong>Hosts:</strong> Dr. Tim Downing & Prof. Cathal Seoighe</p>
+                        <p><strong>Keynote:</strong> Prof. John Greally (Albert Einstein College of Medicine, Yeshiva University).</p>
+                    </div>
+                </div>
+
+                <!-- VIBE 2008 -->
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleVibeYear('vibe2008')">
+                        <h3>VIBE 2008</h3>
+                        <div class="expand-icon" id="vibe2008-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="category-content" id="vibe2008-content">
+                        <p><strong>Date:</strong> September 5, 2008</p>
+                        <p><strong>Keynote:</strong> Prof. Martin Embley (University of Newcastle, UK) - "Origin and evolution of eukaryotic genomes and organelles".</p>
+                    </div>
+                </div>
+
+                <!-- VIBE 2005 -->
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleVibeYear('vibe2005')">
+                        <h3>VIBE 2005 (Biannual Research Day)</h3>
+                        <div class="expand-icon" id="vibe2005-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="category-content" id="vibe2005-content">
+                        <p><strong>Date:</strong> February 17, 2005</p>
+                        <p><strong>Location:</strong> Dublin City University (DCU)</p>
+                        <p><strong>Host:</strong> Mary O'Connell (School of Biotechnology)</p>
+                        <p><strong>Keynote:</strong> Prof. John Conery (University of Oregon).</p>
+                    </div>
+                </div>
+
+                <!-- VIBE 2002 -->
+                <div class="service-category">
+                    <div class="category-header" onclick="toggleVibeYear('vibe2002')">
+                        <h3>VIBE 2002 (Inaugural Meeting)</h3>
+                        <div class="expand-icon" id="vibe2002-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="category-content" id="vibe2002-content">
+                        <p><strong>Date:</strong> April 25–26, 2002</p>
+                        <p><strong>Location:</strong> University College Cork (UCC)</p>
+                        <p><strong>Notable Sessions:</strong> Genome Evolution (Ken Wolfe), Phylogenies (James McInerney), Multiple Alignments (Des Higgins).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Community & Communication -->
+      <section class="content-section" style="background-color: #fff;">
+        <div class="container">
+            <div class="section-header">
+                <div class="icon-circle">
+                  <i class="fas fa-comments"></i>
+                </div>
+                <h2>Community & Communication</h2>
+            </div>
+
+            <div class="cta-box">
+                <h3 style="color: #023452; margin-top: 0;">Join the Mailing List</h3>
+                <p style="max-width: 700px; margin: 0 auto 1.5rem;">Stay up to date with job postings, funding calls, and event announcements by joining the community mailing list hosted by HEAnet. This is the primary communication channel for bioinformaticians in Ireland.</p>
+                
+                <div style="text-align: left; max-width: 600px; margin: 0 auto 2rem; background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #eee;">
+                    <h4 style="margin-top: 0;">How to Subscribe:</h4>
+                    <p>The list is hosted via the HEAnet Listserv (vibe-l).</p>
+                    <ol>
+                        <li>Visit the subscription management page (or send an email command).</li>
+                        <li>Ensure you use your institutional email address for verification.</li>
+                    </ol>
+                </div>
+
+                <a href="https://listserv.heanet.ie/cgi-bin/wa?A0=VIBE-L" target="_blank" class="btn btn-primary">Join VIBE-L via HEAnet</a>
+            </div>
+        </div>
+      </section>
+
+      <!-- Principal Investigators & Research Groups -->
+      <section class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="icon-circle">
+                  <i class="fas fa-flask"></i>
+                </div>
+                <h2>Principal Investigators & Research Groups</h2>
+            </div>
+            
+            <p>Explore the labs driving bioinformatics innovation across the island.</p>
+
+            <div class="pi-grid">
+                <!-- Placeholder Data -->
+                <div class="pi-card">
+                    <h3>Prof. [First Name] [Last Name]</h3>
+                    <div class="institution">[University/Institute Name]</div>
+                    <div class="focus">Focus: [e.g., Genomics, Proteomics, Systems Biology]</div>
+                    <div class="pi-links">
+                        <a href="#" title="Lab Website"><i class="fas fa-globe"></i></a>
+                        <a href="#" title="ORCID Profile"><i class="fab fa-orcid"></i></a>
+                        <a href="#" title="Contact Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="pi-card">
+                    <h3>Prof. [First Name] [Last Name]</h3>
+                    <div class="institution">[University/Institute Name]</div>
+                    <div class="focus">Focus: [e.g., Genomics, Proteomics, Systems Biology]</div>
+                    <div class="pi-links">
+                        <a href="#" title="Lab Website"><i class="fas fa-globe"></i></a>
+                        <a href="#" title="ORCID Profile"><i class="fab fa-orcid"></i></a>
+                        <a href="#" title="Contact Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="pi-card">
+                    <h3>Prof. [First Name] [Last Name]</h3>
+                    <div class="institution">[University/Institute Name]</div>
+                    <div class="focus">Focus: [e.g., Genomics, Proteomics, Systems Biology]</div>
+                    <div class="pi-links">
+                        <a href="#" title="Lab Website"><i class="fas fa-globe"></i></a>
+                        <a href="#" title="ORCID Profile"><i class="fab fa-orcid"></i></a>
+                        <a href="#" title="Contact Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="pi-card">
+                    <h3>Prof. [First Name] [Last Name]</h3>
+                    <div class="institution">[University/Institute Name]</div>
+                    <div class="focus">Focus: [e.g., Genomics, Proteomics, Systems Biology]</div>
+                    <div class="pi-links">
+                        <a href="#" title="Lab Website"><i class="fas fa-globe"></i></a>
+                        <a href="#" title="ORCID Profile"><i class="fab fa-orcid"></i></a>
+                        <a href="#" title="Contact Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Get Listed / Update Info -->
+            <div class="join-directory">
+                <h3>Join the Directory</h3>
+                <p>Are you a Principal Investigator or Group Leader in Bioinformatics on the island of Ireland? We want to feature your lab.</p>
+                <p>To be added to this page, please email: <a href="mailto:elixir@ul.ie" style="color: #f47920;"><i class="fas fa-envelope"></i> elixir@ul.ie</a></p>
+                <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; display: inline-block; text-align: left; margin-top: 1rem;">
+                    <p style="margin: 0; font-size: 0.9rem;"><strong>Please include:</strong></p>
+                    <ul style="margin: 0.5rem 0 0 1.5rem; font-size: 0.9rem;">
+                        <li>PI Name & Title</li>
+                        <li>Affiliation/Institution</li>
+                        <li>Lab Website URL</li>
+                        <li>ORCID iD</li>
+                        <li>Primary Research Keywords (Max 3)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Load scripts in correct order -->
+    <script src="js/ei.js"></script>
+    <script src="js/vibe.js"></script>
+    <script src="js/navigation.js"></script>
+  </body>
+</html>

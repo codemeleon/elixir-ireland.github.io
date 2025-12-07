@@ -299,6 +299,16 @@
       } else {
         console.warn('initializeServices function not found');
       }
+    } else if (pathname.includes('vibe.html')) {
+      if (typeof window.resetVibe === 'function') {
+        window.resetVibe();
+      }
+      if (typeof window.initializeVibe === 'function') {
+        console.log('Calling initializeVibe');
+        window.initializeVibe();
+      } else {
+        console.warn('initializeVibe function not found');
+      }
     } else if (pathname.includes('home.html') || pathname === '/' || pathname.endsWith('/index.html')) {
       // Home page dynamic content
       if (typeof window.resetHome === 'function') {
