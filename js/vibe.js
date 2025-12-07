@@ -43,6 +43,24 @@
         // icon.innerHTML = '<i class="fas fa-chevron-up"></i>';
       }
     };
+
+    // Toggle PI Grid
+    window.togglePiGrid = function() {
+      const grid = document.getElementById('pi-grid-container');
+      const btn = document.getElementById('toggle-pi-grid');
+      
+      if (!grid || !btn) return;
+      
+      if (grid.classList.contains('collapsed')) {
+        grid.classList.remove('collapsed');
+        btn.textContent = "Show Less";
+      } else {
+        grid.classList.add('collapsed');
+        btn.textContent = "Show All Principal Investigators";
+        // Scroll back to top of section
+        btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    };
   };
 
   // Reset function for navigation system
