@@ -9,6 +9,15 @@ const eventsItems = [
     registrationLink: "https://www.eventbrite.com/e/all-island-forum-on-cancer-data-2026-tickets-1839055778339"
   },
   {
+    title: "Launch of the Report: Cancer Research Landscape of the Island of Ireland",
+    date: "2025-12-09",
+    location: "MoLI – Museum of Literature Ireland, Dublin",
+    summary: "Join us for the launch of a landmark report mapping cancer research outputs across Ireland and Northern Ireland between 2019 and 2024.",
+    image: "images/launch_all_island.webp",
+    link: "https://www.eventbrite.com/e/launch-of-the-report-cancer-research-landscape-of-the-island-of-ireland-tickets-1915236095719",
+    registrationLink: "https://www.eventbrite.com/e/launch-of-the-report-cancer-research-landscape-of-the-island-of-ireland-tickets-1915236095719"
+  },
+  {
     title: "VIBE 2025",
     date: "2025-12-08",
     location: "Trinity College Dublin",
