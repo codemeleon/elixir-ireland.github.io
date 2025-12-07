@@ -68,6 +68,20 @@
             border-top: 4px solid #f47920;
             display: flex;
             flex-direction: column;
+            text-align: center;
+        }
+        .pi-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #f0f4f8;
+        }
+        .pi-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .pi-card:hover {
             transform: translateY(-5px);
@@ -97,6 +111,7 @@
             display: flex;
             gap: 15px;
             margin-top: auto;
+            justify-content: center;
         }
         .pi-links a {
             color: #023452;
@@ -154,7 +169,7 @@
     <main>
       <!-- Hero Section -->
       <section class="page-hero" id="top">
-        <div class="container">
+        <div class="page-hero-content">
           <h1>VIBE – The All Ireland Bioinformatics Network</h1>
         </div>
       </section>
@@ -436,48 +451,17 @@
             <p>Explore the labs driving bioinformatics innovation across the island.</p>
 
             <div class="pi-grid">
-                <!-- Placeholder Data -->
                 <div class="pi-card">
-                    <h3>Prof. [First Name] [Last Name]</h3>
-                    <div class="institution">[University/Institute Name]</div>
-                    <div class="focus">Focus: [e.g., Genomics, Proteomics, Systems Biology]</div>
-                    <div class="pi-links">
-                        <a href="#" title="Lab Website"><i class="fas fa-globe"></i></a>
-                        <a href="#" title="ORCID Profile"><i class="fab fa-orcid"></i></a>
-                        <a href="#" title="Contact Email"><i class="fas fa-envelope"></i></a>
+                    <div class="pi-avatar">
+                        <img src="images/aedin.jpeg" alt="Prof. Aedín Culhane">
                     </div>
-                </div>
-                
-                <div class="pi-card">
-                    <h3>Prof. [First Name] [Last Name]</h3>
-                    <div class="institution">[University/Institute Name]</div>
-                    <div class="focus">Focus: [e.g., Genomics, Proteomics, Systems Biology]</div>
+                    <h3>Prof. Aedín Culhane</h3>
+                    <div class="institution">University of Limerick</div>
+                    <div class="focus">Focus: Cancer Genomics, Single Cell Analysis</div>
                     <div class="pi-links">
-                        <a href="#" title="Lab Website"><i class="fas fa-globe"></i></a>
-                        <a href="#" title="ORCID Profile"><i class="fab fa-orcid"></i></a>
-                        <a href="#" title="Contact Email"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-
-                <div class="pi-card">
-                    <h3>Prof. [First Name] [Last Name]</h3>
-                    <div class="institution">[University/Institute Name]</div>
-                    <div class="focus">Focus: [e.g., Genomics, Proteomics, Systems Biology]</div>
-                    <div class="pi-links">
-                        <a href="#" title="Lab Website"><i class="fas fa-globe"></i></a>
-                        <a href="#" title="ORCID Profile"><i class="fab fa-orcid"></i></a>
-                        <a href="#" title="Contact Email"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-                
-                <div class="pi-card">
-                    <h3>Prof. [First Name] [Last Name]</h3>
-                    <div class="institution">[University/Institute Name]</div>
-                    <div class="focus">Focus: [e.g., Genomics, Proteomics, Systems Biology]</div>
-                    <div class="pi-links">
-                        <a href="#" title="Lab Website"><i class="fas fa-globe"></i></a>
-                        <a href="#" title="ORCID Profile"><i class="fab fa-orcid"></i></a>
-                        <a href="#" title="Contact Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.ul.ie/research/prof-aedin-culhane" target="_blank" title="Lab Website"><i class="fas fa-globe"></i></a>
+                        <a href="https://orcid.org/0000-0002-1395-9734" target="_blank" title="ORCID Profile"><i class="fab fa-orcid"></i></a>
+                        <a href="mailto:aedin.culhane@ul.ie" title="Contact Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
