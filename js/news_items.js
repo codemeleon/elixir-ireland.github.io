@@ -2,7 +2,7 @@ const newsItems = [
   {
     title: "Survey: Landscaping Irish Life Science Data Research Infrastructure Needs",
     date: "2025-11-18",
-    summary: "ELIXIR Ireland and VIBE are conducting a national landscape analysis of Irish life science data needs which will be shared back to DFHERIS. Your input is vital and will help shape the strategic roadmap for Ireland's life science data research infrastructure ecosystem. Deadline by 7th December, 2025",
+    summary: "ELIXIR Ireland and VIBE are conducting a national landscape analysis of Irish life science data needs which will be shared back to DFHERIS. Your input is vital and will help shape the strategic roadmap for Ireland's life science data research infrastructure ecosystem. Deadline by 19th December, 2025",
     image: "images/survey.jpg",
     link: "https://forms.gle/x4cwk9GjZBb1E1YR6"
   },
