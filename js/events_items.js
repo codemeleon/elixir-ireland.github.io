@@ -5,8 +5,8 @@ const eventsItems = [
     location: "Queen's University Belfast",
     summary: "Themed 'From Data to Impact: Roadmap for Cancer Data', this two-day event brings together researchers, clinicians, and data experts to advance collaboration in cancer data innovation.",
     image: "images/cancer_form.png",
-    link: "https://www.ul.ie/limerick-dcrc/events/the-all-island-forum-on-cancer-data",
-    registrationLink: "https://www.ul.ie/limerick-dcrc/events/the-all-island-forum-on-cancer-data"
+    link: "https://www.ehealth4cancer.ie/#/forum",
+    registrationLink: "https://www.eventbrite.com/e/all-island-forum-on-cancer-data-2026-tickets-1839055778339"
   },
   {
     title: "VIBE 2025",
